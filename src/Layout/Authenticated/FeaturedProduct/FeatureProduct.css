@@ -1,0 +1,43 @@
+.feature__wrapper {
+  max-width: 876px;
+}
+
+.feature__heading {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 36px;
+  /* identical to box height, or 112% */
+
+  text-align: center;
+
+  /* Title text */
+
+  color: #2d2f55;
+}
+.category__item{
+    width: 126px;
+    height: 126px;
+    background: #F2EADF;
+/* Primary-color */
+
+border: 2px solid #F84072;
+border-radius: 80px
+}
+
+.item__title{
+
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 24px;
+/* identical to box height, or 136% */
+
+text-align: center;
+
+/* Title text */
+
+color: #2D2F55
+}
