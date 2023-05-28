@@ -35,6 +35,9 @@ input:checked {
 .p-2-5{
   padding: 0.75rem !important;
 }
+.py-2-5{
+  padding: 0.75rem !important;
+}
 .checkbox_height_width{
   height: 22px !important ;
   width: 22px !important ;
@@ -52,4 +55,11 @@ text-align: center;
 letter-spacing: 0.4px;
 
 color: #FFFFFF;
+}
+
+.btn-outline-primary{
+  border: 1px solid var(--primary-color-x) !important;
+}
+.btn-outline-primary:hover{
+  background: none !important;
 }
