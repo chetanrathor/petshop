@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Form } from 'react-router-dom'
 import './Login.css'
 import { inputElements } from '.'
-import { SignupUserType } from '../../../constant/signup-types'
+import { SignupUserType } from '../../../../constant/signup-types'
 const Login = () => {
   const [signupAs, setSignup] = useState(SignupUserType.User)
   const getActiveUserImage = (user: SignupUserType) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import {inputElements} from './index'
 import { Form } from 'react-router-dom'
-import { SignupUserType } from '../../../constant/signup-types'
+import { SignupUserType } from '../../../../constant/signup-types'
 const Otp = () => {
   return (
     <div className=''>

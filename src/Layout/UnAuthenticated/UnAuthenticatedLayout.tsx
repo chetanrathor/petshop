@@ -1,8 +1,8 @@
 import React from 'react'
-import ForgetPassword from './ForgetPassword/ForgetPassword'
-import Login from './Login/Login'
-import ModalComponent from '../../Shared/Modal/ModalComponent'
-import Otp from './Otp/Otp'
+import ForgetPassword from './Components/ForgetPassword/ForgetPassword'
+import Login from './Components/Login/Login'
+import ModalComponent from '../../Shared/Components/Modal/ModalComponent'
+import Otp from './Components/Otp/Otp'
 
 const UnAuthenticatedLayout = () => {
   return (

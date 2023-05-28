@@ -1,9 +1,9 @@
 import React from 'react'
-import Toolkit from '../../../Shared/Toolkit/Toolkit'
-import Navbar from '../../../Shared/Navbar/Navbar'
-import Hero from '../../../Shared/Hero/Hero'
-import FeatureProduct from '../FeaturedProduct/FeatureProduct'
-import HomeProducts from '../HomeProducts/HomeProducts'
+import Toolkit from '../../../../Shared/Components/Toolkit/Toolkit'
+import Navbar from '../../../../Shared/Components/Navbar/Navbar'
+import Hero from '../../../../Shared/Components/Hero/Hero'
+import FeatureProduct from '../../Components/FeaturedProduct/FeatureProduct'
+import HomeProducts from '../../Components/HomeProducts/HomeProducts'
 
 const Home = () => {
   let heading = 'Now consult a vet from home '

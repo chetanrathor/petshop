@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { inputElements } from '.'
 import { Form } from 'react-router-dom'
-import { SignupUserType } from '../../../constant/signup-types'
+import { SignupUserType } from '../../../../constant/signup-types'
 const Signup = () => {
 
   const [signupAs, setSignup] = useState(SignupUserType.User)

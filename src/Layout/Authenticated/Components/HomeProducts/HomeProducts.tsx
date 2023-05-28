@@ -1,6 +1,6 @@
 import React from 'react'
 import './HomeProducts.css'
-import FeatureProductItem from '../../../Shared/FeatureProductItem/FeatureProductItem'
+import FeatureProductItem from '../../../../Shared/Components/FeatureProductItem/FeatureProductItem'
 const HomeProducts = () => {
 
     let dummyData = [1, 2, 3, 4, 5, 6, 7, 8]
