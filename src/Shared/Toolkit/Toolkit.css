@@ -1,0 +1,23 @@
+.toolkit_container{
+   background: #2D2F55;
+}
+
+.toolit_wrapper{
+    max-width: 1262px;
+    height: 40px;
+}
+.social_container{
+    width: 110px;
+}
+
+.contact_text{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 19px;
+/* identical to box height, or 119% */
+
+
+color: #FFFFFF;
+}
