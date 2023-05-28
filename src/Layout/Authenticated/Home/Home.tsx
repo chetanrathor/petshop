@@ -3,6 +3,7 @@ import Toolkit from '../../../Shared/Toolkit/Toolkit'
 import Navbar from '../../../Shared/Navbar/Navbar'
 import Hero from '../../../Shared/Hero/Hero'
 import FeatureProduct from '../FeaturedProduct/FeatureProduct'
+import HomeProducts from '../HomeProducts/HomeProducts'
 
 const Home = () => {
   let heading = 'Now consult a vet from home '
@@ -13,6 +14,7 @@ const Home = () => {
       <Navbar></Navbar>
       <Hero heading={heading} subheading={subheading} ></Hero>
       <FeatureProduct></FeatureProduct>
+      <HomeProducts></HomeProducts>
     </div>
   )
 }
