@@ -1,0 +1,35 @@
+.TopRatedProductItem_container{
+    width: 402px;
+    height: 158px;
+    border-bottom: 0.921955px solid #ECECF2;  ;
+}
+.top_rated_product_image_container{
+    background: #FFFFFF;
+        border-radius: 7.37564px;
+}
+.product_heading{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 800;
+font-size: 20px;
+line-height: 28px;
+/* or 138% */
+
+
+/* Title text */
+
+color: #2D2F55
+}
+.price_container{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 800;
+font-size: 20.283px;
+line-height: 28px;
+/* identical to box height, or 136% */
+
+
+/* Primary-color */
+
+color: #F84072;
+}

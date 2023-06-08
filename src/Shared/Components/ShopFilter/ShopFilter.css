@@ -1,0 +1,39 @@
+.shop_filter_container {
+  background: #ffffff;
+  /* Stroke Line */
+  max-width: 300px;
+
+  border: 2px solid #ececf2;
+  border-radius: 8px;
+}
+
+.filter_shop_heading {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 30px;
+  /* identical to box height, or 136% */
+
+  /* Title text */
+
+  color: #2d2f55;
+}
+.shop_filter_label {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  /* identical to box height, or 112% */
+
+  /* Title text */
+
+  color: #2d2f55;
+}
+
+
+.collapsed_height{
+    height: 50px;
+    overflow: hidden;
+}

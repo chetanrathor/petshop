@@ -8,7 +8,7 @@ const FeatureProductItem = () => {
         <div className="p-3 image_container">
           <div className="discount_tag d-flex justify-content-center align-items-center"><span className='discount'>20%</span></div>
           <div className="px-5 image__container">
-            <img src="royalcanin.png" height='227px' width='167px' alt="" />
+            <img src={process.env.PUBLIC_URL + "/royalcanin.png"} height='227px' width='167px' alt="" />
           </div>
         </div>
         <div className="px-4 mt-3 price_container">

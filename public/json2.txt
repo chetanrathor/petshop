@@ -1,0 +1,102 @@
+let data2 = [
+    {
+      "categories_slug": "home",
+      "total_amount": "2053.26",
+      "percentage": "1.34"
+    },
+    {
+      "categories_slug": "taxes",
+      "total_amount": "1392.00",
+      "percentage": "0.91"
+    },
+    {
+      "categories_slug": "shopping",
+      "total_amount": "5511.16",
+      "percentage": "3.59"
+    },
+    {
+      "categories_slug": "gambling_and_lotteries",
+      "total_amount": "54.00",
+      "percentage": "0.04"
+    },
+    {
+      "categories_slug": "transfers",
+      "total_amount": "24847.99",
+      "percentage": "16.18"
+    },
+    {
+      "categories_slug": "mortgage_and_rent",
+      "total_amount": "10200.00",
+      "percentage": "6.64"
+    },
+    {
+      "categories_slug": "utilities",
+      "total_amount": "1584.91",
+      "percentage": "1.03"
+    },
+    {
+      "categories_slug": "banking",
+      "total_amount": "1804.95",
+      "percentage": "1.18"
+    },
+    {
+      "categories_slug": "dependent_costs",
+      "total_amount": "299.97",
+      "percentage": "0.20"
+    },
+    {
+      "categories_slug": "pensions_savings_and_investments",
+      "total_amount": "3423.90",
+      "percentage": "2.23"
+    },
+    {
+      "categories_slug": "borrowing_and_loans",
+      "total_amount": "2000.00",
+      "percentage": "1.30"
+    },
+    {
+      "categories_slug": "health_and_personal_care",
+      "total_amount": "1359.92",
+      "percentage": "0.89"
+    },
+    {
+      "categories_slug": "entertainment",
+      "total_amount": "1464.93",
+      "percentage": "0.95"
+    },
+    {
+      "categories_slug": "travel",
+      "total_amount": "1549.61",
+      "percentage": "1.01"
+    },
+    {
+      "categories_slug": "food_and_drink",
+      "total_amount": "7757.80",
+      "percentage": "5.05"
+    },
+    {
+      "categories_slug": "income",
+      "total_amount": "82500.00",
+      "percentage": "53.73"
+    },
+    {
+      "categories_slug": "general",
+      "total_amount": "2447.65",
+      "percentage": "1.59"
+    },
+    {
+      "categories_slug": "insurance",
+      "total_amount": "829.84",
+      "percentage": "0.54"
+    },
+    {
+      "categories_slug": "transport",
+      "total_amount": "1267.43",
+      "percentage": "0.83"
+    },
+    {
+      "categories_slug": "media_and_telecoms",
+      "total_amount": "1200.38",
+      "percentage": "0.78"
+    }
+  ]

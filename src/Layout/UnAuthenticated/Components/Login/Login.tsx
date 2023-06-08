@@ -7,9 +7,9 @@ const Login = () => {
   const [signupAs, setSignup] = useState(SignupUserType.User)
   const getActiveUserImage = (user: SignupUserType) => {
     if (signupAs === user) {
-      return 'Activated_user.png'
+      return process.env.PUBLIC_URL + 'Activated_user.png'
     }
-    return 'InActivated_user.png'
+    return process.env.PUBLIC_URL + 'InActivated_user.png'
   }
   const changeActiveUserSignupType = (user: SignupUserType) => {
     setSignup(user)
@@ -18,7 +18,7 @@ const Login = () => {
     <div className=''>
       <div className="wrapper  p-4">
         <div className=" d-flex flex-row justify-content-end close_container">
-          <img src="cross.png" height='20px' width='20px' alt="" />
+          <img src={process.env.PUBLIC_URL + "/cross.png"} height='20px' width='20px' alt="" />
           {/* <span className='text-end'>close</span> */}
         </div>
         <h3 className=' mb-5  heading_signup '> Sign in</h3>

@@ -1,0 +1,67 @@
+.shop_item_container {
+  border: 1px solid #ececf2;
+  border-radius: 8px;
+  max-width: 281px;
+}
+.shop_item_image_container {
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.discount_tag {
+  background: #f84072;
+  border-radius: 4px;
+}
+.discount_rate {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height, or 129% */
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.item_image {
+}
+.item_category {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 143% */
+
+  /* Body text */
+
+  color: #68686a;
+}
+.shop_item_description {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+
+  /* Title text */
+
+  color: #2d2f55;
+  max-width: 265px;
+}
+
+.item_price {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  /* identical to box height, or 156% */
+
+  /* Primary-color */
+
+  color: #f84072;
+}

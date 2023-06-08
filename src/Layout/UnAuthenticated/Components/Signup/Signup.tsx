@@ -21,7 +21,7 @@ const Signup = () => {
     <div className=''>
     <div className="wrapper  p-4">
       <div className=" d-flex flex-row justify-content-end close_container">
-        <img src="cross.png" height='20px' width='20px' alt="" />
+        <img src={process.env.PUBLIC_URL + "cross.png"} height='20px' width='20px' alt="" />
         {/* <span className='text-end'>close</span> */}
       </div>
       <h3 className=' mb-5  heading_signup '>Sign up</h3>
@@ -51,7 +51,7 @@ const Signup = () => {
           <span className='select_user_button'>Signup as user</span>
         </div> 
         <div className="col-2">
-          <img src="Line.png" className='partition_line' height='1px' width='32px' alt="" />
+          <img src={process.env.PUBLIC_URL + "/Line.png"} className='partition_line' height='1px' width='32px' alt="" />
         </div>
         <div className="col-5   ">
           <img src={getActiveUserImage(SignupUserType.Vet)} height='12.53px' width='12.53px' alt="" />

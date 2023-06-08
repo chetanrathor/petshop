@@ -7,7 +7,7 @@ const ForgetPassword = () => {
     <div className=''>
     <div className="wrapper  p-4">
       <div className=" d-flex flex-row justify-content-end close_container">
-        <img src="cross.png" height='20px' width='20px' alt="" />
+        <img src={process.env.PUBLIC_URL + "/cross.png"} height='20px' width='20px' alt="" />
         {/* <span className='text-end'>close</span> */}
       </div>
       <h3 className='   heading_signup '> Forget password</h3>

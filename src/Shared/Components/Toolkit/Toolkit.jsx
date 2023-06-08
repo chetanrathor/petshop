@@ -1,6 +1,7 @@
 import React from 'react'
 import './Toolkit.css'
 import { socialIcons,contactItems } from '.'
+import { Link } from 'react-router-dom'
 const Toolkit = () => {
   return (
     <div>
@@ -10,7 +11,7 @@ const Toolkit = () => {
         {
           socialIcons.map((item)=>{
             return(
-              <img src={item.imageSource} height={item.height} width={item.width} alt={item.name} ></img>
+              <img src={process.env.PUBLIC_URL + item.imageSource} height={item.height} width={item.width} alt={item.name} ></img>
             )
           })
         }
@@ -21,9 +22,9 @@ const Toolkit = () => {
             contactItems.map((item)=>{
               return(
                 <>
-                <img className='ms-5 me-2' src={item.icon} height={item.height} width={item.width} alt={item.name}>
+                <img className='ms-5 me-2' src={process.env.PUBLIC_URL + item.icon} height={item.height} width={item.width} alt={item.name}>
                 </img>
-                <span className='contact_text'>{item.text}</span>
+              <Link to={item.link}><span className='contact_text'>{item.text}</span></Link> 
                 </>
 
               )

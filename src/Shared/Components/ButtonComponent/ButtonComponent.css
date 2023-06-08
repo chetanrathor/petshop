@@ -1,0 +1,21 @@
+.button_padding {
+  padding: 20px !important;
+}
+
+.button_text {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+  /* identical to box height, or 188% */
+
+  color: #ffffff;
+}
+
+.button_primary_bg{
+    background: #F84072 !important;
+}
+.button_secondary_bg{
+    background: #2D2F55 !important; 
+}

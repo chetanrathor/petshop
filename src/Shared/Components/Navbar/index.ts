@@ -1,12 +1,12 @@
 export const linkItems = [
     {
         name:'Home',
-        path:'/',
+        path:'/home',
 
     },
     {
         name:'Consult a vet',
-        path:'/consult',
+        path:'/petguide',
 
     },
     {

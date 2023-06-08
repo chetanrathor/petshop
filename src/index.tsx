@@ -8,29 +8,66 @@ import Layout from './Layout/Layout';
 import UnAuthenticatedLayout from './Layout/UnAuthenticated/UnAuthenticatedLayout';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
+import AuthenticatedLayout from './Layout/Authenticated/AuthenticatedLayout';
+import Home from './Layout/Authenticated/Pages/Home/Home';
+import PetGuide from './Layout/Authenticated/Pages/PetGuide/PetGuide';
+import PetGuideDetail from './Layout/Authenticated/Pages/PetGuideDetail/PetGuideDetail';
+import PetGuideList from './Layout/Authenticated/Components/PetGuideList/PetGuideList';
+import Shop from './Layout/Authenticated/Pages/Shop/Shop';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (<App/>),
-    children:[
+    element: (<App />),
+    children: [
       {
-        path:'/',
-        element:(<Layout></Layout>),
-        children:[
+        path: '',
+        element: (<Layout></Layout>),
+
+        children: [
           {
-            path:'',
-            element:(<UnAuthenticatedLayout></UnAuthenticatedLayout>)
+            path: '',
+            element: (<UnAuthenticatedLayout></UnAuthenticatedLayout>)
           },
           {
-            path:'auth',
-            element:(<UnAuthenticatedLayout></UnAuthenticatedLayout>)
-          }
+            path: '',
+            element: (<AuthenticatedLayout></AuthenticatedLayout>),
+
+            children: [
+              {
+                path: 'home',
+                element: (<Home></Home>)
+              },
+              {
+                path: 'shop',
+                element: (<Shop></Shop>)
+              },
+              {
+                path: 'petguide',
+                element: (<PetGuide></PetGuide>),
+
+
+              },
+              {
+                path: 'petguide/:id',
+                element: (<PetGuideDetail></PetGuideDetail>),
+
+
+              },
+
+            ]
+
+          },
+
+
+
         ]
       }
     ]
-  },
-  
-]);
+  }
+]
+
+
+);
 
 
 const root = ReactDOM.createRoot(
