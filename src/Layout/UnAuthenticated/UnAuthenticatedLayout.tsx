@@ -8,7 +8,7 @@ const UnAuthenticatedLayout = () => {
   return (
     <div>
       {/* <Login></Login> */}
-      <ModalComponent  show={true} child={<Otp></Otp>} ></ModalComponent>
+      {/* <ModalComponent  show={true} child={<Otp></Otp>} ></ModalComponent> */}
     </div>
   )
 }

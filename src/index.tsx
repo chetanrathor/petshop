@@ -26,10 +26,6 @@ const router = createBrowserRouter([
         children: [
           {
             path: '',
-            element: (<UnAuthenticatedLayout></UnAuthenticatedLayout>)
-          },
-          {
-            path: '',
             element: (<AuthenticatedLayout></AuthenticatedLayout>),
 
             children: [
@@ -74,7 +70,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  <React.StrictMode >
     <RouterProvider router={router} />
   </React.StrictMode>
 );

@@ -1,6 +1,6 @@
-.button_padding {
+/* .button_padding {
   padding: 20px !important;
-}
+} */
 
 .button_text {
   font-family: "Nunito";
@@ -13,8 +13,11 @@
   color: #ffffff;
 }
 
+.hover:hover{
+  background: #F84072 !important;
+}
+
 .button_primary_bg{
-    background: #F84072 !important;
 }
 .button_secondary_bg{
     background: #2D2F55 !important; 

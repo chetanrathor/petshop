@@ -1,11 +1,25 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import './ButtonComponent.css'
-const ButtonComponent = ({ isPrimary, text,handelClick }: any) => {
+import Loader from '../Loader/Loader'
+
+
+interface PropType {
+  bgColor: string,
+  content: string,
+  handelClick?: () => void,
+  isSubmitButton: boolean,
+  extraClass?: string,
+  shouldDisabel:boolean,
+  canActivateLoader:boolean
+
+}
+
+const ButtonComponent = ({ bgColor, content, isSubmitButton, handelClick, extraClass,shouldDisabel,canActivateLoader }: PropType) => {
   return (
     <>
-      <Button variant='primary'  onClick={()=>{handelClick()}} className={`border-0 button_padding ${isPrimary ? 'button_primary_bg' : 'button_secondary_bg'}`} >
-        <span className='button_text'>{text}</span></Button>
+      <Button variant='primary' disabled={shouldDisabel} type={(isSubmitButton ? 'submit' : 'button')} onClick={handelClick} className={`border-0 hover  ${bgColor} ${extraClass}`} >
+        <span className='button_text'>{ (canActivateLoader?<Loader ></Loader>:null)} {(shouldDisabel ? null : content)}</span></Button>
     </>
   )
 }

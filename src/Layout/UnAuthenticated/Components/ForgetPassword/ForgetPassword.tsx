@@ -2,14 +2,21 @@ import React from 'react'
 import { inputElements } from '.'
 import { Form } from 'react-router-dom'
 import { SignupUserType } from '../../../../constant/signup-types'
+import { useDispatch } from 'react-redux'
+import { setChild, setShow } from '../../../Authenticated/State/ModalSlice'
+import { MODAL_TYPES } from '../../../../constant/modal-types'
 const ForgetPassword = () => {
+
+  const dispatch = useDispatch()
+
+  const handelSigninClick = () =>{
+    dispatch(setShow(true))
+    dispatch(setChild(MODAL_TYPES.SIGNUP))
+  }
+
   return (
     <div className=''>
     <div className="wrapper  p-4">
-      <div className=" d-flex flex-row justify-content-end close_container">
-        <img src={process.env.PUBLIC_URL + "/cross.png"} height='20px' width='20px' alt="" />
-        {/* <span className='text-end'>close</span> */}
-      </div>
       <h3 className='   heading_signup '> Forget password</h3>
       <p>Type your email address and we’ll send a reset link <br />
           right away.   
@@ -30,7 +37,7 @@ const ForgetPassword = () => {
       </Form>
      
       <div className='terms_and_condition_para mt-5'>
-        <text>Don’t have an account? <span className='color-primary text-decoration-underline'>Sign up </span></text>
+        <text>Don’t have an account? <span className='color-primary text-decoration-underline' onClick={()=>{handelSigninClick()}} >Sign up </span></text>
       </div>
     </div>
   </div>

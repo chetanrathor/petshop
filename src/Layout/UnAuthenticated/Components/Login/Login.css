@@ -76,3 +76,8 @@ letter-spacing: 0.4px;
 
 color: #FFFFFF;
 }
+
+.button-submit:hover{
+
+  background: var(--primary-color-x) !important;
+}

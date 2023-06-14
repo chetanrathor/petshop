@@ -2,10 +2,20 @@ import React, { useState } from 'react'
 import { inputElements } from '.'
 import { Form } from 'react-router-dom'
 import { SignupUserType } from '../../../../constant/signup-types'
-const Signup = () => {
+import { useDispatch } from 'react-redux'
+import { setChild, setShow } from '../../../Authenticated/State/ModalSlice'
+import { MODAL_TYPES } from '../../../../constant/modal-types'
+const  Signup = () => {
+
+  const dispatch = useDispatch()
 
   const [signupAs, setSignup] = useState(SignupUserType.User)
-  
+
+  const handelSigninClick = ()=>{
+    dispatch(setShow(true))
+    dispatch(setChild(MODAL_TYPES.LOGIN))
+  }
+
   const getActiveUserImage = (user: SignupUserType) => {
     if (signupAs === user) {
       return 'Activated_user.png'
@@ -20,10 +30,9 @@ const Signup = () => {
   return (
     <div className=''>
     <div className="wrapper  p-4">
-      <div className=" d-flex flex-row justify-content-end close_container">
-        <img src={process.env.PUBLIC_URL + "cross.png"} height='20px' width='20px' alt="" />
-        {/* <span className='text-end'>close</span> */}
-      </div>
+      {/* <div className=" d-flex flex-row justify-content-end close_container">
+        <img src={process.env.PUBLIC_URL + "cross.png"}  height='20px' width='20px' alt="" />
+      </div> */}
       <h3 className=' mb-5  heading_signup '>Sign up</h3>
       <Form>
         {
@@ -59,7 +68,7 @@ const Signup = () => {
         </div>
       </div>
       <div className='terms_and_condition_para mt-5'>
-        <text>Already have an account? <span className='color-primary text-decoration-underline'>Sign in </span></text>
+        <text>Already have an account? <span className='color-primary text-decoration-underline' onClick={()=>{handelSigninClick()}}>Sign in </span></text>
       </div>
     </div>
   </div>
@@ -67,4 +76,8 @@ const Signup = () => {
 }
 
 export default Signup
+
+function dispatch(arg0: any) {
+  throw new Error('Function not implemented.')
+}
 

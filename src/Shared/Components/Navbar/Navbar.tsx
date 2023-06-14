@@ -2,7 +2,39 @@ import React from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 import { linkItems } from './index'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../../Store/Store'
+import { setChild, setHandelClose, setShow } from '../../../Layout/Authenticated/State/ModalSlice'
+import Login from '../../../Layout/UnAuthenticated/Components/Login/Login'
+import { MODAL_TYPES } from '../../../constant/modal-types'
+import { setProgressBarVisiblity } from '../../../Layout/Authenticated/State/ProgressBarSlice'
 const Navbar = () => {
+    const { authReducer, modalReducer } = useSelector((state: RootState) => state)
+    const {isAuthenticated} = authReducer
+    const {} = modalReducer
+    const dispatch = useDispatch()
+    const handelCartButtonClick = ()=>{
+        dispatch(setShow(true))
+       dispatch(setChild(MODAL_TYPES.LOGIN))
+  
+    }
+
+  const handelLoginButtonClick = ()=>{
+    if (isAuthenticated) {
+        
+    }else{
+        
+        dispatch(setProgressBarVisiblity({shouldProgressBarVisible:true}))
+
+        setTimeout(() => {
+        dispatch(setProgressBarVisiblity({shouldProgressBarVisible:false}))
+        handelCartButtonClick()
+            
+        }, 500);
+
+    }
+  }
+
     return (
         <div>
             <div className="d-flex flex-column justify-content-center navbar__container">
@@ -33,9 +65,9 @@ const Navbar = () => {
 
                     </div>
                     <div className="col-3 d-flex flex-row justify-content-around flex-grow-1 cart_accoount_container" >
-                   <button className='btn btn-outline-primary ps-3 pe-4 py-2-5'><img src={process.env.PUBLIC_URL + "/cart.png"} height='21px' width='30px' alt="" /> <span className='cart_btn_text'>Cart</span> </button>
-                   <button className='btn btn-primary btn-outline-primary  px-5 background-primary py-2-5'> <span className='login_btn_text'>Login</span> </button>
-
+                   <button onClick={()=>{handelCartButtonClick()}} className='btn btn-outline-primary ps-3 pe-4 py-2-5'><img src={process.env.PUBLIC_URL + "/cart.png"} height='21px' width='30px' alt="" /> <span className='cart_btn_text'>Cart</span> </button>
+                   <button onClick={()=>{handelLoginButtonClick()}}  className='btn btn-primary btn-outline-primary  px-5 background-primary py-2-5'> <span className='login_btn_text' >{(isAuthenticated?'My Account':'Login')}</span> </button>
+                                            
                     </div>
 
 

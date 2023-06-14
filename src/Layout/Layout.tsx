@@ -8,19 +8,47 @@ import PetGuide from './Authenticated/Pages/PetGuide/PetGuide';
 import PetGuideDetail from './Authenticated/Pages/PetGuideDetail/PetGuideDetail';
 import PetGuideList from './Authenticated/Components/PetGuideList/PetGuideList';
 import Shop from './Authenticated/Pages/Shop/Shop';
+import { useSelector, useDispatch } from 'react-redux';
+import { isTokenAvailable } from './Authenticated/Services/AuthService';
+import { setIsAuthenticatedFalse, setIsAuthenticatedTrue } from './Authenticated/State/AuthSlice';
+import ModalComponent from '../Shared/Components/Modal/ModalComponent';
+import { RootState } from '../Store/Store';
+import ProgressBar from '../Shared/Components/ProgressBar/ProgressBar';
 const Layout = () => {
-  function getSession() {
-    let token = localStorage.getItem('petshop')
-    if (token) {
-      return true
-    }
-    else return false
-  }
-  const [tokenState, setTokenState] = useState(getSession())
 
-  if (tokenState) {
-    return (
-      <div>
+  const { modalReducer, progressBarReducer } = useSelector((state: RootState) => state)
+  const { child, show } = modalReducer
+  const { isProgressBarVisible } = progressBarReducer
+
+  // console.log('child :>> ', state);
+  const dispatch = useDispatch()
+
+  if (isTokenAvailable()) {
+    dispatch(setIsAuthenticatedTrue())
+  }
+
+  const getProgressBar = () => {
+
+    console.log('isProgressBarVisible :>> ', isProgressBarVisible);
+
+    if (isProgressBarVisible) {
+      return (<>
+        <ProgressBar></ProgressBar>
+
+      </>)
+    }
+    else {
+      return null
+    }
+  }
+
+
+  return (
+    <>
+      {
+        getProgressBar()
+      }
+      <div className=''>
         <Routes>
           <Route path='' element={<AuthenticatedLayout></AuthenticatedLayout>} >
             <Route path='home' element={<Home></Home>} ></Route>
@@ -30,17 +58,11 @@ const Layout = () => {
           </Route>
         </Routes>
       </div>
-    )
-  } else {
-    return (
-      <div>
-        <Routes>
-          <Route path='' element={<UnAuthenticatedLayout></UnAuthenticatedLayout>} >
-          </Route>
-
-        </Routes>
+      <div className="">
+        <ModalComponent child={child} handleClose='hds' show={show}></ModalComponent>
       </div>
-    )
-  }
+    </>
+  )
+
 }
 export default Layout

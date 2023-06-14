@@ -26,7 +26,7 @@ const AreYouVetBanner = () => {
                     <p className='mt-2 sub_headings'>
                     We would love to work with you. Send us a message and we’ll be in touch with you <br /> right away to onboard you to our platform.
                     </p>
-                    <ButtonComponent text={'Join us as vet'}  isPrimary={true}></ButtonComponent>
+                    {/* <ButtonComponent text={'Join us as vet'}  isPrimary={true}></ButtonComponent> */}
                 </div>
             </div>
         </div>
