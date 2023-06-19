@@ -15,8 +15,8 @@ const   BlogItem = ({ date, heading, id, subHeading,handelClick }: PropType) => 
   return (
     <div>
       <div className="mt-5 blog_item_container">
-        <div className="blog_image_container">
-          <img height='300px' width='388px' src="blog1.png" alt="" />
+        <div className="blog_item_container">
+          <img height='300px' width='100%' src="blog1.png" alt="" />
         </div>
         <div className="p-3 mini_detail_container">
           <div className="d-flex flex-row align-items-center">

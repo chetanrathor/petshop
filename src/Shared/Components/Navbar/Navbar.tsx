@@ -37,7 +37,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="d-flex flex-column justify-content-center navbar__container">
+            <div className="d-none d-lg-flex flex-column justify-content-center navbar__container">
                 <div className="d-flex flex-row w-100 navbar__wrapper">
                     <div className="col-5 ">
                         <div className="d-flex flex-row align-items-center justify-content-between logo_brand_container">

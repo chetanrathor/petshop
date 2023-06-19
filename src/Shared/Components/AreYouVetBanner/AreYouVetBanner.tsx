@@ -6,8 +6,8 @@ import ButtonComponent from '../ButtonComponent/ButtonComponent'
 const AreYouVetBanner = () => {
     return (
         <div>
-            <div className="mt-5 banner__container">
-                <div className="d-flex flex-column justify-content-center align-items-center banner__wrapper">
+            <div className=" mt-5 banner__container">
+                <div className="p-3 d-flex flex-column justify-content-center align-items-center banner__wrapper">
                     {/* <div className=" dot_container">
 
                         {
@@ -26,7 +26,7 @@ const AreYouVetBanner = () => {
                     <p className='mt-2 sub_headings'>
                     We would love to work with you. Send us a message and we’ll be in touch with you <br /> right away to onboard you to our platform.
                     </p>
-                    {/* <ButtonComponent text={'Join us as vet'}  isPrimary={true}></ButtonComponent> */}
+                    {/* <ButtonComponent bgColor=''  isPrimary={true}></ButtonComponent> */}
                 </div>
             </div>
         </div>

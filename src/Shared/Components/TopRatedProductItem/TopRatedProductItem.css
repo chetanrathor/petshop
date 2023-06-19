@@ -1,6 +1,6 @@
 .TopRatedProductItem_container{
-    width: 402px;
-    height: 158px;
+    max-width: 402px;
+    /* height: 158px; */
     border-bottom: 0.921955px solid #ECECF2;  ;
 }
 .top_rated_product_image_container{

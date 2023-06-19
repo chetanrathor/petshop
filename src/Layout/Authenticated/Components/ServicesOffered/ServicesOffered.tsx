@@ -5,8 +5,8 @@ import { servicesCarts } from '.'
 const ServicesOffered = () => {
     return (
         <div>
-            <div className="mt-5 servicesOffered__container">
-                <div className="d-flex flex-row m-auto justify-content-between servicesOffered__wrapper">
+            <div className="p-3 mt-5 servicesOffered__container">
+                <div className="d-flex flex-column flex-md-row gap-3  m-auto justify-content-between servicesOffered__wrapper">
                     {
                         servicesCarts.map((item) => {
                             return (

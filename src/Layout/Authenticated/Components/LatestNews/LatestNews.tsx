@@ -10,7 +10,7 @@ const LatestNews = () => {
   const navigate = useNavigate()
   return (
     <div>
-      <div className="mt-5 mb-5 latest_news_container">
+      <div className="p-3 mt-5 mb-5 latest_news_container">
         <div className="lates_news_wrapper">
           <MediumHeading heading='Our Pet Guide'></MediumHeading>
           <div className="d-flex flex-row justify-content-between flex-wrap">

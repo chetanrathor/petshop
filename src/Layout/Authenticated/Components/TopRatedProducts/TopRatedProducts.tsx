@@ -6,10 +6,10 @@ import { topRatedProducts } from '.'
 const TopRatedProducts = () => {
   return (
     <div>
-      <div className="mt-5 top-rated_product_container">
+      <div className="p-3 mt-5 top-rated_product_container">
         <div className="m-auto top_rated_prduct_wrapper">
           <MediumHeading heading='Top Rated Products'></MediumHeading>
-          <div className="d-flex flex-row flex-wrap justify-content-between mt-5">
+          <div className="d-flex flex-row flex-wrap gap-4 justify-content-between mt-5">
 
 
             {

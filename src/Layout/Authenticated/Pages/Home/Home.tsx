@@ -24,14 +24,14 @@ const Home = () => {
     <div>
       <Toolkit></Toolkit>
        <Navbar></Navbar>
-      {/* <Hero heading={heading} subheading={subheading} ></Hero>
+       <Hero heading={heading} subheading={subheading} ></Hero>
       <FeatureProduct></FeatureProduct>
-      <HomeProducts></HomeProducts>
+       <HomeProducts></HomeProducts>
       <AreYouVetBanner></AreYouVetBanner>
       <ServicesOffered></ServicesOffered>
       <TopRatedProducts></TopRatedProducts>
       <LatestNews></LatestNews>
-      <Footer></Footer>  */}
+      {/* <Footer></Footer>   */}
     </div>
   )
 }

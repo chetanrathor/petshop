@@ -11,7 +11,7 @@ const TopRatedProductItem = ({imgSource,name,price,rating}:PropType) => {
   return (
     <div>
       <div className="TopRatedProductItem_container">
-        <div className="d-flex flex-row justify-content-between">
+        <div className="d-flex flex-row justify-content-between py-1">
           <div className="col-4">
             <div className="top_rated_product_image_container">
               <img src={imgSource} height='90%' width='100%' alt="" />
@@ -23,7 +23,8 @@ const TopRatedProductItem = ({imgSource,name,price,rating}:PropType) => {
               changeRating={(rating) => { console.log(rating) }}
               rating={rating}
               starRatedColor="#FFDA47"
-              numberOfStars={3}
+              numberOfStars={2}
+              starDimension='25px'
 
               name='rating'
             ></StarRatings>

@@ -6,8 +6,8 @@ const HomeProducts = () => {
     let dummyData = [1, 2, 3, 4, 5, 6, 7, 8]
     return (
         <div>
-            <div className="mt-5 home_products_container">
-                <div className="m-auto d-flex flex-row flex-wrap gap-4 home_products_wrapper ">
+            <div className="p-3 mt-5 home_products_container">
+                <div className="m-auto d-flex flex-row justify-content-center flex-wrap gap-4 home_products_wrapper ">
                     {
                         dummyData.map((item) => {
                             return (<>
