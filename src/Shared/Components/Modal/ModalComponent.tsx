@@ -6,7 +6,7 @@ import Login from '../../../Layout/UnAuthenticated/Components/Login/Login'
 import Signup from '../../../Layout/UnAuthenticated/Components/Signup/Signup'
 import ForgetPassword from '../../../Layout/UnAuthenticated/Components/ForgetPassword/ForgetPassword'
 import { useDispatch } from 'react-redux'
-import { resetModalState } from '../../../Layout/Authenticated/State/ModalSlice'
+import { resetModalState } from '../../../State/ModalSlice'
 
 interface PropType {
   show: boolean,

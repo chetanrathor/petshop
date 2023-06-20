@@ -10,7 +10,7 @@ import PetGuideList from './Authenticated/Components/PetGuideList/PetGuideList';
 import Shop from './Authenticated/Pages/Shop/Shop';
 import { useSelector, useDispatch } from 'react-redux';
 import { isTokenAvailable } from './Authenticated/Services/AuthService';
-import { setIsAuthenticatedFalse, setIsAuthenticatedTrue } from './Authenticated/State/AuthSlice';
+import { setIsAuthenticatedFalse, setIsAuthenticatedTrue } from '../State/AuthSlice';
 import ModalComponent from '../Shared/Components/Modal/ModalComponent';
 import { RootState } from '../Store/Store';
 import ProgressBar from '../Shared/Components/ProgressBar/ProgressBar';

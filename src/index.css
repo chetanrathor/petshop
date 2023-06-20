@@ -5,6 +5,7 @@
 :root{
   --primary-color-x:#F84072;
   --secondary-color-x:#2D2F55;
+  --warning-color-x:#ffffff;
 }
 
 body {
@@ -24,8 +25,17 @@ body {
   background-color: var(--secondary-color-x) !important;
 }
 
+
+.background-warning{
+  background-color: var(--warning-color-x) !important;
+}
+
 .color-primary{
   color: var(--primary-color-x) !important;
+}
+
+.border-primary-x{
+  border: 1px solid #F84072 !important;
 }
 
 code {
