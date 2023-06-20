@@ -6,7 +6,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { store } from './Store/Store';
 import { isTokenAvailable } from './Layout/Authenticated/Services/AuthService';
-import { setIsAuthenticatedFalse } from './Layout/Authenticated/State/AuthSlice';
+import { setIsAuthenticatedFalse } from './State/AuthSlice';
 
 
 

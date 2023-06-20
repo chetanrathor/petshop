@@ -3,9 +3,9 @@ import './Loader.css'
 
 const Loader = () => {
   return (
-    <div>
-    <div className="dot-pulse"></div>
-    </div>
+   
+   <span className="loader"></span>
+    
   )
 }
 

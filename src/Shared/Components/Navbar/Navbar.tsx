@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom'
 import { linkItems } from './index'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../Store/Store'
-import { setChild, setHandelClose, setShow } from '../../../Layout/Authenticated/State/ModalSlice'
+import { setChild, setHandelClose, setShow } from '../../../State/ModalSlice'
 import Login from '../../../Layout/UnAuthenticated/Components/Login/Login'
 import { MODAL_TYPES } from '../../../constant/modal-types'
-import { setProgressBarVisiblity } from '../../../Layout/Authenticated/State/ProgressBarSlice'
+import { setProgressBarVisiblity } from '../../../State/ProgressBarSlice'
+import ButtonComponent from '../ButtonComponent/ButtonComponent'
 const Navbar = () => {
     const { authReducer, modalReducer } = useSelector((state: RootState) => state)
     const {isAuthenticated} = authReducer
@@ -65,9 +66,10 @@ const Navbar = () => {
 
                     </div>
                     <div className="col-3 d-flex flex-row justify-content-around flex-grow-1 cart_accoount_container" >
-                   <button onClick={()=>{handelCartButtonClick()}} className='btn btn-outline-primary ps-3 pe-4 py-2-5'><img src={process.env.PUBLIC_URL + "/cart.png"} height='21px' width='30px' alt="" /> <span className='cart_btn_text'>Cart</span> </button>
-                   <button onClick={()=>{handelLoginButtonClick()}}  className='btn btn-primary btn-outline-primary  px-5 background-primary py-2-5'> <span className='login_btn_text' >{(isAuthenticated?'My Account':'Login')}</span> </button>
-                                            
+                   {/* <button onClick={()=>{handelCartButtonClick()}} className='btn btn-outline-primary ps-3 pe-4 py-2-5'><img src={process.env.PUBLIC_URL + "/cart.png"} height='21px' width='30px' alt="" /> <span className='cart_btn_text'>Cart</span> </button> */}
+                   {/* <button onClick={()=>{handelLoginButtonClick()}}  className='btn btn-primary btn-outline-primary  background-primary '> <span className='login_btn_text' >{(isAuthenticated?'My Account':'Login')}</span> </button> */}
+                   <ButtonComponent handelClick={handelCartButtonClick}  isSubmitButton={false} bgColor='background-warning' extraClass=' px-5 py-2-5 border-primary-x ' canActivateLoader={false} content='Cart' shouldDisabel={false} ></ButtonComponent>
+                   <ButtonComponent handelClick={handelLoginButtonClick}  isSubmitButton={false} bgColor='background-primary' extraClass=' px-5 py-2-5 border-0' canActivateLoader={false} content='Login' shouldDisabel={false} ></ButtonComponent>
                     </div>
 
 

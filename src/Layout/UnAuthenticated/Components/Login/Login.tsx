@@ -3,16 +3,19 @@ import { Form } from 'react-router-dom'
 import './Login.css'
 import { inputElements } from '.'
 import { SignupUserType } from '../../../../constant/signup-types'
-import { useDispatch } from 'react-redux'
-import { setChild, setShow } from '../../../Authenticated/State/ModalSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { setChild, setShow } from '../../../../State/ModalSlice'
 import { MODAL_TYPES } from '../../../../constant/modal-types'
-import { loginAction } from '../../../Authenticated/State/AuthSlice'
-import { store } from '../../../../Store/Store'
+import { loginAction } from '../../../../State/AuthSlice'
+import { RootState, store } from '../../../../Store/Store'
 import Loader from '../../../../Shared/Components/Loader/Loader'
 import { Button } from 'react-bootstrap'
 import ButtonComponent from '../../../../Shared/Components/ButtonComponent/ButtonComponent'
-import { setProgressBarVisiblity } from '../../../Authenticated/State/ProgressBarSlice'
+import { setProgressBarVisiblity } from '../../../../State/ProgressBarSlice'
+import { setCanActivateLoader, setShouldButtonDisable } from '../../../../State/ButtonSlice'
 const Login = () => {
+  const {canActivateLoader,shouldButtonDisable} = useSelector((state:RootState)=>state.buttonReducer)
+
   const dispatch = useDispatch()
   const [signupAs, setSignup] = useState(SignupUserType.User)
   const getActiveUserImage = (user: SignupUserType) => {
@@ -31,14 +34,17 @@ const Login = () => {
   }
 
   const handelClickSubmit = () => {
-    dispatch(setProgressBarVisiblity({shouldProgressBarVisible:true}))
-    store.dispatch(loginAction({
-      fullName: "jane smith",
-      email: "janesmith123@mail.com",
-      password: "dsgfhw234cd@$#$",
-      role: "User"
-    }))
-    dispatch(setProgressBarVisiblity({shouldProgressBarVisible:false}))
+    // dispatch(setProgressBarVisiblity({ shouldProgressBarVisible: true }))
+    // store.dispatch(loginAction({
+    //   fullName: "jane smith",
+    //   email: "janesmith123@mail.com",
+    //   password: "dsgfhw234cd@$#$",
+    //   role: "User"
+    // }))
+    // dispatch(setProgressBarVisiblity({ shouldProgressBarVisible: false }))
+
+    dispatch(setCanActivateLoader({setCanActivateLoader:!canActivateLoader}))
+    dispatch(setShouldButtonDisable({setShouldButtonDisable:!shouldButtonDisable}))
 
   }
 
@@ -67,7 +73,7 @@ const Login = () => {
             </div>
           </div>
           {/* <button type="submit" className="btn btn-primary background-primary border-0 p-3 mt-2 w-100 btn-text button-submit"  > <Loader></Loader>  <span className='signup-btn-text'>Sign in</span> </button> */}
-          <ButtonComponent canActivateLoader={false} shouldDisabel={false} bgColor='background-primary' content='Sign in' extraClass='w-100 py-2 mt-2'  isSubmitButton={true} ></ButtonComponent>
+          <ButtonComponent canActivateLoader={canActivateLoader} shouldDisabel={shouldButtonDisable} bgColor='background-primary' content='Sign in' extraClass='w-100 py-2 mt-2' isSubmitButton={true} ></ButtonComponent>
         </Form>
         <div className="d-flex flex-row  mt-5 mx-4 ">
           <div className="col-5" onClick={(e) => { e.preventDefault(); changeActiveUserSignupType(SignupUserType.User) }}>
