@@ -14,6 +14,8 @@ import PetGuide from './Layout/Authenticated/Pages/PetGuide/PetGuide';
 import PetGuideDetail from './Layout/Authenticated/Pages/PetGuideDetail/PetGuideDetail';
 import PetGuideList from './Layout/Authenticated/Components/PetGuideList/PetGuideList';
 import Shop from './Layout/Authenticated/Pages/Shop/Shop';
+import MyProfile from './Layout/Authenticated/Pages/MyProfile/MyProfile';
+import ProductPage from './Layout/Authenticated/Pages/ProductPage/ProductPage';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,13 +42,15 @@ const router = createBrowserRouter([
               {
                 path: 'petguide',
                 element: (<PetGuide></PetGuide>),
-
-
               },
               {
                 path: 'petguide/:id',
                 element: (<PetGuideDetail></PetGuideDetail>),
 
+              },
+              {
+                path: 'profile/:id',
+                element: (<ProductPage></ProductPage>),
 
               },
 

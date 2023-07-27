@@ -1,0 +1,44 @@
+.tabs_container {
+  max-width: 1264px;
+}
+
+.tab_item-inactive {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+
+  /* Title text */
+
+  color: #2d2f55;
+}
+
+.tab_item-active {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+
+  /* Primary-color */
+  border-bottom: 2px solid #f84072;
+  /* border-radius: 8px; */
+  color: #f84072;
+}
+
+.py-2-rem {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-pointer:hover {
+  cursor: pointer;
+  border-bottom: 2px solid #f84072;
+  transition-property:border;
+  transition-delay:.512ms ;
+  transition-timing-function: ease-in-out;
+}

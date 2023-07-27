@@ -13,6 +13,7 @@ import Footer from '../../../../Shared/Components/Footer/Footer'
 import LatestPost from '../../../../Shared/Components/LatestPost/LatestPost'
 import BlogImage from '../../Components/BlogImage/BlogImage'
 import { useSelector } from 'react-redux'
+import ProductImage from '../../Components/ProductImage/ProductImage'
 
 const Home = () => {
 
@@ -32,6 +33,7 @@ const Home = () => {
       <TopRatedProducts></TopRatedProducts>
       <LatestNews></LatestNews>
       {/* <Footer></Footer>   */}
+      <ProductImage height='100' width='100 ' image='productImage.png' ></ProductImage>
     </div>
   )
 }

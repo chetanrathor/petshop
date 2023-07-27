@@ -14,6 +14,10 @@ import { setIsAuthenticatedFalse, setIsAuthenticatedTrue } from '../State/AuthSl
 import ModalComponent from '../Shared/Components/Modal/ModalComponent';
 import { RootState } from '../Store/Store';
 import ProgressBar from '../Shared/Components/ProgressBar/ProgressBar';
+import MyProfile from './Authenticated/Pages/MyProfile/MyProfile';
+import ProductPage from './Authenticated/Pages/ProductPage/ProductPage';
+import ProductCart from './Authenticated/Pages/ProductCart/ProductCart';
+import Checkout from './Authenticated/Pages/Checkout/Checkout';
 const Layout = () => {
 
   const { modalReducer, progressBarReducer } = useSelector((state: RootState) => state)
@@ -54,6 +58,7 @@ const Layout = () => {
             <Route path='home' element={<Home></Home>} ></Route>
             <Route path='petguide' element={<PetGuide></PetGuide>}></Route>
             <Route path='petguide/:id' element={<PetGuideDetail></PetGuideDetail>}></Route>
+            <Route path='profile/:id' element={<Checkout></Checkout>}></Route>
             <Route path='shop' element={<Shop></Shop>} ></Route>
           </Route>
         </Routes>
