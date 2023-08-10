@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import ModalComponent from '../Shared/Components/Modal/ModalComponent';
-import ProgressBar from '../Shared/Components/ProgressBar/ProgressBar';
+import ModalComponent from '../components/ModalComponent'
+import ProgressBar from '../components/ModalComponent';
 import { setIsAuthenticatedTrue } from '../State/AuthSlice';
-import { RootState } from '../Store/Store';
+import { RootState } from '../stores/Store';
 import AuthenticatedLayout from './Authenticated/AuthenticatedLayout';
-import Checkout from './Authenticated/Pages/Checkout/Checkout';
-import Home from './Authenticated/Pages/Home/Home';
-import PetGuide from './Authenticated/Pages/PetGuide/PetGuide';
-import PetGuideDetail from './Authenticated/Pages/PetGuideDetail/PetGuideDetail';
-import Shop from './Authenticated/Pages/Shop/Shop';
+import Checkout from './Authenticated/Pages/Checkout';
+import Home from './Authenticated/Pages/Home';
+import PetGuide from './Authenticated/Pages/PetGuide';
+import PetGuideDetail from './Authenticated/Pages/PetGuideDetail';
+import Shop from './Authenticated/Pages/Shop';
 import { isTokenAvailable } from './Authenticated/Services/AuthService';
 const Layout = () => {
 
@@ -24,27 +24,12 @@ const Layout = () => {
     dispatch(setIsAuthenticatedTrue())
   }
 
-  const getProgressBar = () => {
 
-    console.log('isProgressBarVisible :>> ', isProgressBarVisible);
-
-    if (isProgressBarVisible) {
-      return (<>
-        <ProgressBar></ProgressBar>
-
-      </>)
-    }
-    else {
-      return null
-    }
-  }
 
 
   return (
     <>
-      {
-        getProgressBar()
-      }
+
       <div className=''>
         <Routes>
           <Route path='' element={<AuthenticatedLayout></AuthenticatedLayout>} >

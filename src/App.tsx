@@ -1,13 +1,13 @@
 import { Provider } from 'react-redux';
 import './App.css';
 import Layout from './Layout/Layout';
-import { store } from './Store/Store';
+import { store } from './stores/Store';
 
 
 
 
 function App() {
-  
+
 
 
   return (
