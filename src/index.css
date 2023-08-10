@@ -78,3 +78,11 @@ color: #FFFFFF;
 .btn-outline-primary:hover{
   background: none !important;
 }
+
+.mw-1264{
+  max-width: 1264px;
+}
+
+.color-grey{
+  color:#68686A !important;
+}

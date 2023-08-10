@@ -16,7 +16,7 @@ export const linkItems = [
     },
     {
         name:'Pet guid',
-        path:'/petguid',
+        path:'/profile/1',
 
     }
 ]

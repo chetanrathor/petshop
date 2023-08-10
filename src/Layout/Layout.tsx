@@ -1,19 +1,16 @@
-import React, { useState } from 'react'
-import AuthenticatedLayout from './Authenticated/AuthenticatedLayout'
-import { createBrowserRouter, RouterProvider, Route, Link, createRoutesFromElements, Routes, useLocation, useNavigate } from 'react-router-dom'
-import App from '../App';
-import UnAuthenticatedLayout from './UnAuthenticated/UnAuthenticatedLayout';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import ModalComponent from '../Shared/Components/Modal/ModalComponent';
+import ProgressBar from '../Shared/Components/ProgressBar/ProgressBar';
+import { setIsAuthenticatedTrue } from '../State/AuthSlice';
+import { RootState } from '../Store/Store';
+import AuthenticatedLayout from './Authenticated/AuthenticatedLayout';
+import Checkout from './Authenticated/Pages/Checkout/Checkout';
 import Home from './Authenticated/Pages/Home/Home';
 import PetGuide from './Authenticated/Pages/PetGuide/PetGuide';
 import PetGuideDetail from './Authenticated/Pages/PetGuideDetail/PetGuideDetail';
-import PetGuideList from './Authenticated/Components/PetGuideList/PetGuideList';
 import Shop from './Authenticated/Pages/Shop/Shop';
-import { useSelector, useDispatch } from 'react-redux';
 import { isTokenAvailable } from './Authenticated/Services/AuthService';
-import { setIsAuthenticatedFalse, setIsAuthenticatedTrue } from '../State/AuthSlice';
-import ModalComponent from '../Shared/Components/Modal/ModalComponent';
-import { RootState } from '../Store/Store';
-import ProgressBar from '../Shared/Components/ProgressBar/ProgressBar';
 const Layout = () => {
 
   const { modalReducer, progressBarReducer } = useSelector((state: RootState) => state)
@@ -54,6 +51,7 @@ const Layout = () => {
             <Route path='home' element={<Home></Home>} ></Route>
             <Route path='petguide' element={<PetGuide></PetGuide>}></Route>
             <Route path='petguide/:id' element={<PetGuideDetail></PetGuideDetail>}></Route>
+            <Route path='profile/:id' element={<Checkout></Checkout>}></Route>
             <Route path='shop' element={<Shop></Shop>} ></Route>
           </Route>
         </Routes>

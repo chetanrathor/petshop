@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react'
-import Home from './Pages/Home/Home'
-import { Outlet, Route, Routes, useNavigate, useRoutes } from 'react-router-dom'
-import PetGuide from './Pages/PetGuide/PetGuide'
+import { useEffect } from 'react'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 const AuthenticatedLayout = () => {
-  const router = useNavigate()
   const navigate  =  useNavigate()
   useEffect(()=>{
     navigate('/home')
-  },[])
+  })
 
   return (
     <div>

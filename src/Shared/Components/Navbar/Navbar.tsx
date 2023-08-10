@@ -1,14 +1,12 @@
-import React from 'react'
-import './Navbar.css'
-import { Link } from 'react-router-dom'
-import { linkItems } from './index'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../../../Store/Store'
-import { setChild, setHandelClose, setShow } from '../../../State/ModalSlice'
-import Login from '../../../Layout/UnAuthenticated/Components/Login/Login'
-import { MODAL_TYPES } from '../../../constant/modal-types'
+import { Link } from 'react-router-dom'
+import { setChild, setShow } from '../../../State/ModalSlice'
 import { setProgressBarVisiblity } from '../../../State/ProgressBarSlice'
+import { RootState } from '../../../Store/Store'
+import { MODAL_TYPES } from '../../../constant/modal-types'
 import ButtonComponent from '../ButtonComponent/ButtonComponent'
+import './Navbar.css'
+import { linkItems } from './index'
 const Navbar = () => {
     const { authReducer, modalReducer } = useSelector((state: RootState) => state)
     const {isAuthenticated} = authReducer
