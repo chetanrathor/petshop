@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react'
-import './Modal.css'
-import { Button, Modal, ModalHeader } from 'react-bootstrap'
-import { MODAL_TYPES } from '../../../constant/modal-types'
+import { ReactNode } from 'react'
+import { Modal, ModalHeader } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import ForgetPassword from '../../../Layout/UnAuthenticated/Components/ForgetPassword/ForgetPassword'
 import Login from '../../../Layout/UnAuthenticated/Components/Login/Login'
 import Signup from '../../../Layout/UnAuthenticated/Components/Signup/Signup'
-import ForgetPassword from '../../../Layout/UnAuthenticated/Components/ForgetPassword/ForgetPassword'
-import { useDispatch } from 'react-redux'
 import { resetModalState } from '../../../State/ModalSlice'
+import { MODAL_TYPES } from '../../../constant/modal-types'
+import './Modal.css'
 
 interface PropType {
   show: boolean,

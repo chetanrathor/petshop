@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { inputElements } from '.'
-import { Form } from 'react-router-dom'
-import { SignupUserType } from '../../../../constant/signup-types'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { Form } from 'react-router-dom'
+import { inputElements } from '.'
 import { setChild, setShow } from '../../../../State/ModalSlice'
 import { MODAL_TYPES } from '../../../../constant/modal-types'
+import { SignupUserType } from '../../../../constant/signup-types'
 const  Signup = () => {
 
   const dispatch = useDispatch()

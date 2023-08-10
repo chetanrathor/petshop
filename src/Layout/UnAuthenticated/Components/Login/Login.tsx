@@ -14,7 +14,7 @@ import ButtonComponent from '../../../../Shared/Components/ButtonComponent/Butto
 import { setProgressBarVisiblity } from '../../../../State/ProgressBarSlice'
 import { setCanActivateLoader, setShouldButtonDisable } from '../../../../State/ButtonSlice'
 const Login = () => {
-  const {canActivateLoader,shouldButtonDisable} = useSelector((state:RootState)=>state.buttonReducer)
+  const { canActivateLoader, shouldButtonDisable } = useSelector((state: RootState) => state.buttonReducer)
 
   const dispatch = useDispatch()
   const [signupAs, setSignup] = useState(SignupUserType.User)
@@ -34,17 +34,10 @@ const Login = () => {
   }
 
   const handelClickSubmit = () => {
-    // dispatch(setProgressBarVisiblity({ shouldProgressBarVisible: true }))
-    // store.dispatch(loginAction({
-    //   fullName: "jane smith",
-    //   email: "janesmith123@mail.com",
-    //   password: "dsgfhw234cd@$#$",
-    //   role: "User"
-    // }))
-    // dispatch(setProgressBarVisiblity({ shouldProgressBarVisible: false }))
 
-    dispatch(setCanActivateLoader({setCanActivateLoader:!canActivateLoader}))
-    dispatch(setShouldButtonDisable({setShouldButtonDisable:!shouldButtonDisable}))
+
+    dispatch(setCanActivateLoader({ setCanActivateLoader: !canActivateLoader }))
+    dispatch(setShouldButtonDisable({ setShouldButtonDisable: !shouldButtonDisable }))
 
   }
 

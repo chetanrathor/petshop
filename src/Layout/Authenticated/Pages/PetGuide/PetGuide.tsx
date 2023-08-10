@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react'
-import Toolkit from '../../../../Shared/Components/Toolkit/Toolkit'
-import Navbar from '../../../../Shared/Components/Navbar/Navbar'
-import BreadCrumb from '../../../../Shared/Components/BreadCrumb/BreadCrumb'
 import { breadCrumb } from '.'
+import BreadCrumb from '../../../../Shared/Components/BreadCrumb/BreadCrumb'
+import Footer from '../../../../Shared/Components/Footer/Footer'
+import Navbar from '../../../../Shared/Components/Navbar/Navbar'
+import Toolkit from '../../../../Shared/Components/Toolkit/Toolkit'
 import Blogs from '../../Components/Blogs/Blogs'
 import BlogsFilter from '../../Components/BogsFilter/BlogsFilter'
-import Pagination from '../../../../Shared/Components/Pagination/Pagination'
-import { Outlet, useNavigate } from 'react-router-dom'
-import PetGuideList from '../../Components/PetGuideList/PetGuideList'
-import Footer from '../../../../Shared/Components/Footer/Footer'
 
 const PetGuide = () => {
   

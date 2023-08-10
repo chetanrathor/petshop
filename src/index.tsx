@@ -1,21 +1,18 @@
-import React, { Children } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Layout from './Layout/Layout';
-import UnAuthenticatedLayout from './Layout/UnAuthenticated/UnAuthenticatedLayout';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle'
+import App from './App';
 import AuthenticatedLayout from './Layout/Authenticated/AuthenticatedLayout';
 import Home from './Layout/Authenticated/Pages/Home/Home';
 import PetGuide from './Layout/Authenticated/Pages/PetGuide/PetGuide';
 import PetGuideDetail from './Layout/Authenticated/Pages/PetGuideDetail/PetGuideDetail';
-import PetGuideList from './Layout/Authenticated/Components/PetGuideList/PetGuideList';
-import Shop from './Layout/Authenticated/Pages/Shop/Shop';
-import MyProfile from './Layout/Authenticated/Pages/MyProfile/MyProfile';
 import ProductPage from './Layout/Authenticated/Pages/ProductPage/ProductPage';
+import Shop from './Layout/Authenticated/Pages/Shop/Shop';
+import Layout from './Layout/Layout';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
 const router = createBrowserRouter([
   {
     path: "/",
