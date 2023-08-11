@@ -11,6 +11,9 @@ import PetGuide from './Authenticated/Pages/PetGuide';
 import PetGuideDetail from './Authenticated/Pages/PetGuideDetail';
 import Shop from './Authenticated/Pages/Shop';
 import { isTokenAvailable } from './Authenticated/Services/AuthService';
+import MyProfile from '../features/profile/components/MyProfile';
+import ProductPage from './Authenticated/Pages/ProductPage';
+import ProductCart from './Authenticated/Pages/ProductCart';
 const Layout = () => {
 
   const { modalReducer, progressBarReducer } = useSelector((state: RootState) => state)
@@ -36,8 +39,11 @@ const Layout = () => {
             <Route path='home' element={<Home></Home>} ></Route>
             <Route path='petguide' element={<PetGuide></PetGuide>}></Route>
             <Route path='petguide/:id' element={<PetGuideDetail></PetGuideDetail>}></Route>
-            <Route path='profile/:id' element={<Checkout></Checkout>}></Route>
+            <Route path='profile/:id' element={<MyProfile></MyProfile>}></Route>
             <Route path='shop' element={<Shop></Shop>} ></Route>
+            <Route path='shop/:id' element={<ProductPage></ProductPage>} ></Route>
+            <Route path='checkout/:id' element={<ProductCart></ProductCart>}></Route>
+            <Route path='payment/:id' element={<Checkout></Checkout>}></Route>
           </Route>
         </Routes>
       </div>

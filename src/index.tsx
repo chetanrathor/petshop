@@ -13,6 +13,8 @@ import Shop from './Layout/Authenticated/Pages/Shop';
 import Layout from './Layout/Layout';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Checkout from './Layout/Authenticated/Pages/Checkout';
+import ProductCart from './Layout/Authenticated/Pages/ProductCart';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +50,21 @@ const router = createBrowserRouter([
               {
                 path: 'profile/:id',
                 element: (<ProductPage></ProductPage>),
+
+              },
+              {
+                path: 'shop/:id',
+                element: (<ProductPage></ProductPage>),
+
+              },
+              {
+                path: 'checkout/:id',
+                element: (<ProductCart></ProductCart>),
+
+              },
+              {
+                path: 'payment/:id',
+                element: (<Checkout></Checkout>),
 
               },
 

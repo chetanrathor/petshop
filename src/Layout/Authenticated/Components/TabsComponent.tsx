@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setActiveTab } from '../../../State/TabsSlice'
 import { RootState } from '../../../stores/Store'
+import { setProfileTab } from '../../../features/profile/state/profile-tab.state'
 
 const TabsComponent = () => {
 
     const tabs = [
         {
-            id: 'my_profile',
+            id: 'myprofile',
             name: 'My Profile'
         },
         {
@@ -15,25 +15,23 @@ const TabsComponent = () => {
             name: 'Shipping'
         },
         {
-            id: 'orders',
+            id: 'order',
             name: 'Orders'
         },
         {
-            id: 'consulation',
+            id: 'consultation',
             name: 'Consultation'
         },
 
     ]
 
     const dispatch = useDispatch()
-    const selctActiveTab = useSelector((state: RootState) => state.tabsReducer.activeTab)
+    const selctActiveTab = useSelector((state: RootState) => state.profileTabReducer.activeTab)
 
-    useEffect(() => {
-        dispatch(setActiveTab({ setActiveTabToBe: tabs[0].id }))
-    }, [])
+
 
     const handelTabClick = (id: string) => {
-        dispatch(setActiveTab({ setActiveTabToBe: id }))
+        dispatch(setProfileTab({ activeTab: id }))
     }
 
 

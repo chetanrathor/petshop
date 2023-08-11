@@ -1,10 +1,11 @@
 import React from 'react'
-import Address from '../Components/Address'
+import Address from '../../../features/profile/components/Address'
 import { Link } from 'react-router-dom'
-import { Navbar } from 'react-bootstrap'
 import BreadCrumb from '../../../components/BreadCrumb'
-import ButtonComponent from '../../../components/ButtonComponent'
+import ButtonComponent from '../../../components/button/ButtonComponent'
 import Toolkit from '../../../components/Toolkit'
+import ButtonText from '../../../components/button/ButtonText'
+import Navbar from '../../../components/Navbar'
 
 
 const Checkout = () => {
@@ -23,7 +24,7 @@ const Checkout = () => {
                     </div>
                     <div className="mt-5">
 
-                        <ButtonComponent bgColor='background-primary' canActivateLoader={false} content='Add New Address' isSubmitButton={false} shouldDisabel={false} extraClass='py-3 border-0' ></ButtonComponent>
+                        {/* <ButtonComponent bgColor='background-primary' canActivateLoader={false} content='Add New Address' isSubmitButton={false} shouldDisabel={false} extraClass='py-3 border-0' ></ButtonComponent> */}
                     </div>
                 </div>
                 <div className="col-4 p-3 left_adress">
@@ -112,9 +113,13 @@ const Checkout = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="d-flex flex-column">
+                    <div className="d-flex flex-column gap-3 mt-3">
 
-                        <ButtonComponent bgColor='background-primary' canActivateLoader={false} isSubmitButton={false} shouldDisabel={false} content='Place Order' extraClass='px-5 py-4 border-0 mt-3'></ButtonComponent>
+                        {/* <ButtonComponent bgColor='background-primary' canActivateLoader={false} isSubmitButton={false} shouldDisabel={false} content='Place Order' extraClass='px-5 py-4 border-0 mt-3'></ButtonComponent> */}
+                        {/* <ButtonComponent backgroundColor='primary' disabled={false} isSubmitButton={false} handelClick={() => { }} > <ButtonText fontSize='medium'  > hle </ButtonText> </ButtonComponent> */}
+                        <ButtonComponent className='px-5 py-3  border ' handelClick={() => { }} isSubmitButton={false} backgroundColor='primary' disabled={false} >
+                            <ButtonText className='color-' fontSize='small' >Place Order</ButtonText>
+                        </ButtonComponent>
                         <div className=" mt-2 d-flex flex-row">
                             <input type="checkbox" className='form-check-input mt-0 checkbox_height_width' />
                             <div className="ms-2 tandc">I accept the <Link to={''} className='color-primary text-decoration-underline'>terms and conditions</Link></div>

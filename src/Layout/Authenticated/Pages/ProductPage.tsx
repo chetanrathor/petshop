@@ -5,10 +5,18 @@ import BreadCrumb from '../../../components/BreadCrumb'
 import ProductImage from '../Components/ProductImage'
 import StarRatings from 'react-star-ratings'
 import QuantityCounter from '../../../components/QuantityCounter'
-import ButtonComponent from '../../../components/ButtonComponent'
+import ButtonComponent from '../../../components/button/ButtonComponent'
 import FeatureProductItem from '../../../components/FeatureProductItem'
 import Footer from '../../../components/Footer'
+import ButtonText from '../../../components/button/ButtonText'
+import { useNavigate } from 'react-router-dom'
 const ProductPage = () => {
+    const navigate = useNavigate()
+
+    const handelCheckoutClick = () => {
+        navigate('/checkout/1')
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
 
     const similarProducts = [1, 2, 3, 4]
 
@@ -51,10 +59,12 @@ const ProductPage = () => {
                     <div className="mt-3 product_page_price">
                         $32.39
                     </div>
-                    <div className="mt-3 d-flex flex-row">
+                    <div className="mt-3 d-flex flex-row gap-2">
                         <div className="product_page_qty d-inline-flex justify-content-center align-items-center me-3">Qty:</div>
                         <QuantityCounter></QuantityCounter>
-                        <ButtonComponent extraClass='border-0 px-5 ms-4' bgColor='background-primary' isSubmitButton={false} shouldDisabel={false} canActivateLoader={false} content='Add to cart' ></ButtonComponent>
+                        <ButtonComponent className='px-5 border ' handelClick={() => { handelCheckoutClick() }} isSubmitButton={false} backgroundColor='primary' disabled={false} >
+                            <ButtonText className='color-' fontSize='small' >Checkout</ButtonText>
+                        </ButtonComponent>
                     </div>
 
                 </div>

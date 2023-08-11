@@ -7,7 +7,7 @@ import { RootState } from '../../../stores/Store'
 import { MODAL_TYPES } from '../../../constant/modal-types'
 import { SignupUserType } from '../../../constant/signup-types'
 import { getKey } from '../../../utils'
-import ButtonComponent from '../../../components/ButtonComponent'
+import ButtonComponent from '../../../components/button/ButtonComponent'
 
 const Login = () => {
   const inputElements = [
@@ -80,7 +80,7 @@ const Login = () => {
               <span className='w-100'>Remember me <span className=' float-end  ' onClick={() => { handelComponentChange(MODAL_TYPES.FORGET_PASSWORD) }}>Forgot password &nbsp;</span></span>
             </div>
           </div>
-          <ButtonComponent canActivateLoader={canActivateLoader} shouldDisabel={shouldButtonDisable} bgColor='background-primary' content='Sign in' extraClass='w-100 py-2 mt-2' isSubmitButton={true} ></ButtonComponent>
+          {/* <ButtonComponent canActivateLoader={canActivateLoader} shouldDisabel={shouldButtonDisable} bgColor='background-primary' content='Sign in' extraClass='w-100 py-2 mt-2' isSubmitButton={true} ></ButtonComponent> */}
         </Form>
         <div className="d-flex flex-row  mt-5 mx-4 ">
           <div className="col-5" onClick={(e) => { e.preventDefault(); changeActiveUserSignupType(SignupUserType.User) }}>

@@ -1,4 +1,5 @@
 import AreYouVetBanner from '../../../components/AreYouVetBanner'
+import Footer from '../../../components/Footer'
 import Hero from '../../../components/Hero'
 import Navbar from '../../../components/Navbar'
 import Toolkit from '../../../components/Toolkit'
@@ -25,8 +26,8 @@ const Home = () => {
       <ServicesOffered></ServicesOffered>
       <TopRatedProducts></TopRatedProducts>
       <LatestNews></LatestNews>
-      {/* <Footer></Footer>   */}
-      <ProductImage height='100' width='100 ' image='productImage.png' ></ProductImage>
+      <Footer></Footer>  
+      {/* <ProductImage height='100' width='100 ' image='productImage.png' ></ProductImage> */}
     </div>
   )
 }

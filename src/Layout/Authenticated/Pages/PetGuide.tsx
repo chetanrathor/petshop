@@ -1,7 +1,7 @@
 
-import { Navbar } from 'react-bootstrap'
 import BreadCrumb from '../../../components/BreadCrumb'
 import Footer from '../../../components/Footer'
+import Navbar from '../../../components/Navbar'
 import Toolkit from '../../../components/Toolkit'
 import Blogs from '../Components/Blogs'
 import BlogsFilter from '../Components/BlogsFilter'

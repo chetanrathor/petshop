@@ -706,7 +706,8 @@ input:checked {
 
 .blog_item_container {
   /* height: 562px; */
-  width: 350px;
+  max-width: 388px;
+  min-width: 350px;
   background: #ffffff;
   /* Stroke Line */
 

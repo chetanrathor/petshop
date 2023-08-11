@@ -3,12 +3,22 @@ import Toolkit from '../../../components/Toolkit'
 import Navbar from '../../../components/Navbar'
 import BreadCrumb from '../../../components/BreadCrumb'
 import QuantityCounter from '../../../components/QuantityCounter'
-import ButtonComponent from '../../../components//ButtonComponent'
+import ButtonComponent from '../../../components/button/ButtonComponent'
 // import ServicesOffered from '../../../components/'
 import Footer from '../../../components/Footer'
+import ServicesOffered from '../Components/ServicesOffered'
+import ButtonText from '../../../components/button/ButtonText'
+import { useNavigate } from 'react-router-dom'
 
 
 const ProductCart = () => {
+    const navigate = useNavigate()
+
+    const handelCheckoutClick = () => {
+        navigate('/payment/1')
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
     const heading = [{
         name: 'PRODUCTS',
         extraclass: 'col-4'
@@ -79,13 +89,15 @@ const ProductCart = () => {
                         </div>
                         <div className="mt-3 sub-total-price">$32.39</div>
                         <div className="d-flex mt-3 flex-row justify-content-end">
-
-                            <ButtonComponent bgColor='background-primary' canActivateLoader={false} content='Checkout' isSubmitButton={false} shouldDisabel={false} extraClass='py-3 px-4 border-0 '  ></ButtonComponent>
+                            <ButtonComponent className='px-5 py-3 border ' handelClick={() => {handelCheckoutClick() }} isSubmitButton={false} backgroundColor='primary' disabled={false} >
+                                <ButtonText className='color-' fontSize='small' >Checkout</ButtonText>
+                            </ButtonComponent>
+                            {/* <ButtonComponent bgColor='background-primary' canActivateLoader={false} content='Checkout' isSubmitButton={false} shouldDisabel={false} extraClass='py-3 px-4 border-0 '  ></ButtonComponent> */}
                         </div>
                     </div>
 
                 </div>
-                {/* <ServicesOffered></ServicesOffered> */}
+                <ServicesOffered></ServicesOffered>
             </div>
             <Footer></Footer>
         </div>

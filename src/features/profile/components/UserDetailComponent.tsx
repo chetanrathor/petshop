@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonComponent from '../../../components/ButtonComponent'
+import ButtonComponent from '../../../components/button/ButtonComponent'
 const UserDetailComponent = () => {
     return (
         <div>
@@ -25,7 +25,7 @@ const UserDetailComponent = () => {
                 <div className="col-4 d-flex justify-content-end  ">
                     <div className="col-2">
 
-                        <ButtonComponent bgColor='background-primary' canActivateLoader={false} content='Edit' isSubmitButton={false} shouldDisabel={false} extraClass='border-0 p-3' handelClick={() => { }}></ButtonComponent>
+                        {/* <ButtonComponent bgColor='background-primary' canActivateLoader={false} content='Edit' isSubmitButton={false} shouldDisabel={false} extraClass='border-0 p-3' handelClick={() => { }}></ButtonComponent> */}
                     </div>
                 </div>
             </div>

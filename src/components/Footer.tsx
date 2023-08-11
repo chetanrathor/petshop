@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Footer = () => {
     const usefullLink1 = [
         {
@@ -22,7 +24,7 @@ const Footer = () => {
     const usefullLink2 = [
         {
             link: 'My orders',
-            path: '/',
+            path: '/profile/1',
 
 
         },
@@ -82,7 +84,7 @@ const Footer = () => {
                                             return (<>
                                                 <div className='mt-3'>
                                                     <img src={process.env.PUBLIC_URL + "/Active-dot.png"} alt="" height='8px' width='8px' />
-                                                    <span className='ms-2 consult'>{item.link}</span>
+                                                    <Link to={item.path} className='ms-2 consult'>{item.link}</Link>
                                                 </div>
                                             </>)
                                         })
