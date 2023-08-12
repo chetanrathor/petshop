@@ -16,7 +16,7 @@ import Shop from './Authenticated/Pages/Shop';
 import { isTokenAvailable } from './Authenticated/Services/AuthService';
 const Layout = () => {
 
-  const { modalReducer, progressBarReducer } = useSelector((state: RootState) => state)
+  const { modalReducer } = useSelector((state: RootState) => state)
   const { child, show } = modalReducer
 
   const dispatch = useDispatch()

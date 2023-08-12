@@ -1,28 +1,24 @@
+import React, { useEffect } from 'react'; // Import React and useEffect
 import { Provider } from 'react-redux';
-import './App.css';
-import Layout from './Layout/Layout';
 import { store } from './stores/Store';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-
-
-
+import './App.css';
+import Layout from './Layout/Layout';
 
 function App() {
-
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
+
   useEffect(() => {
     if (location.pathname === '/') {
-
       navigate('/home'); // Redirect to the 'home' route
     }
-  }, [navigate]);
+  }, [location.pathname, navigate]);
 
   return (
     <div className="App">
       <Provider store={store}>
-        <Layout ></Layout>
+        <Layout />
       </Provider>
     </div>
   );
