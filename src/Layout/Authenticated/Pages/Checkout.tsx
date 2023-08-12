@@ -1,21 +1,19 @@
-import React from 'react'
-import Address from '../../../features/profile/components/Address'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import BreadCrumb from '../../../components/BreadCrumb'
-import ButtonComponent from '../../../components/button/ButtonComponent'
-import Toolkit from '../../../components/Toolkit'
-import ButtonText from '../../../components/button/ButtonText'
 import Navbar from '../../../components/Navbar'
+import Toolkit from '../../../components/Toolkit'
+import ButtonComponent from '../../../components/button/ButtonComponent'
+import ButtonText from '../../../components/button/ButtonText'
 import { post } from '../../../features/checkout/api/checkout'
+import Address from '../../../features/profile/components/Address'
 
 
 const Checkout = () => {
-    const navigate = useNavigate()
+   
 
     const handelOrderPlace = async () => {
         const res = await post().catch((err) => err)
         console.log('res', res)
-        // navigate(res.session, { replace: false })
         window.location.href = res.session;
     }
     return (

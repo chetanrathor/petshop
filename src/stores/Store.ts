@@ -1,13 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { AuthReducer, authReducer } from "../State/AuthSlice";
+import { buttonReducer } from '../State/ButtonSlice';
 import { ModalReducer, modalReducer } from "../State/ModalSlice";
-import { Reducer } from "react";
 import { ProgressBarReducer, progressBarReducer } from "../State/ProgressBarSlice";
-import { buttonReducer } from '../State/ButtonSlice'
 import { ButtonReducer } from "../Types/ButtonComponent.types";
+import { profileTabReducer } from '../features/profile/state/profile-tab.state';
 import { ProfileTabReducer } from "../features/profile/types/profile.state.type";
-import { profileTabReducer } from '../features/profile/state/profile-tab.state'
-// import { tabsReducer } from "../State/TabsSlice";
 export interface RootState {
     authReducer: AuthReducer,
     modalReducer: ModalReducer,

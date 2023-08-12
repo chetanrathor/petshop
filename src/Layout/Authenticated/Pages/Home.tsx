@@ -6,7 +6,6 @@ import Toolkit from '../../../components/Toolkit'
 import FeatureProduct from '../Components/FeatureProduct'
 import HomeProducts from '../Components/HomeProducts'
 import LatestNews from '../Components/LatestNews'
-import ProductImage from '../Components/ProductImage'
 import ServicesOffered from '../Components/ServicesOffered'
 import TopRatedProducts from '../Components/TopRatedProducts'
 

@@ -1,27 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import ModalComponent from '../components/ModalComponent'
-import ProgressBar from '../components/ModalComponent';
 import { setIsAuthenticatedTrue } from '../State/AuthSlice';
+import ModalComponent from '../components/ModalComponent';
+import ConsultAVet from '../features/consultation/components/ConsultAVet';
+import MyProfile from '../features/profile/components/MyProfile';
 import { RootState } from '../stores/Store';
 import AuthenticatedLayout from './Authenticated/AuthenticatedLayout';
 import Checkout from './Authenticated/Pages/Checkout';
 import Home from './Authenticated/Pages/Home';
 import PetGuide from './Authenticated/Pages/PetGuide';
 import PetGuideDetail from './Authenticated/Pages/PetGuideDetail';
+import ProductCart from './Authenticated/Pages/ProductCart';
+import ProductPage from './Authenticated/Pages/ProductPage';
 import Shop from './Authenticated/Pages/Shop';
 import { isTokenAvailable } from './Authenticated/Services/AuthService';
-import MyProfile from '../features/profile/components/MyProfile';
-import ProductPage from './Authenticated/Pages/ProductPage';
-import ProductCart from './Authenticated/Pages/ProductCart';
-import ConsultAVet from '../features/consultation/components/ConsultAVet';
 const Layout = () => {
 
   const { modalReducer, progressBarReducer } = useSelector((state: RootState) => state)
   const { child, show } = modalReducer
-  const { isProgressBarVisible } = progressBarReducer
 
-  // console.log('child :>> ', state);
   const dispatch = useDispatch()
 
   if (isTokenAvailable()) {

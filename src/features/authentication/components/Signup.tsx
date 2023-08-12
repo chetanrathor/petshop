@@ -105,7 +105,5 @@ const Signup = () => {
 
 export default Signup
 
-function dispatch(arg0: any) {
-  throw new Error('Function not implemented.')
-}
+
 

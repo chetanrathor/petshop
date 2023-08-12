@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from '../../../components/Image'
 
 const HowWeWork = () => {
@@ -57,17 +56,7 @@ const HowWeWork = () => {
         }
     ]
 
-    const item = {
-        heading: 'You book an appointment',
-        subTitle: 'When you book an appointment by giving some details about the problem your furry friend is facing we setup a meeting for you with a vet. We only have verified and certified vets.',
-        icon: {
-            src: 'howWeWork1.png',
-            height: '47px',
-            width: '47px',
-
-        },
-        background: '#F2EADF'
-    }
+    
 
     return (
         <>
