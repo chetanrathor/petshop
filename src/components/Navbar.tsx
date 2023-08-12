@@ -1,13 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
-import ButtonComponent from './button/ButtonComponent'
-import { setShow, setChild } from '../State/ModalSlice'
-import { setProgressBarVisiblity } from '../State/ProgressBarSlice'
+import { setChild, setShow } from '../State/ModalSlice'
 import { MODAL_TYPES } from '../constant/modal-types'
-import { RootState } from '../stores/Store'
-import ButtonText from './button/ButtonText'
-import Image from './Image'
 import { getKey } from '../utils'
+import Image from './Image'
+import ButtonComponent from './button/ButtonComponent'
+import ButtonText from './button/ButtonText'
 const Navbar = () => {
     const linkItems = [
         {
@@ -31,7 +29,7 @@ const Navbar = () => {
 
         }
     ]
- 
+
     const dispatch = useDispatch()
     const handelCartButtonClick = () => {
         dispatch(setShow(true))
