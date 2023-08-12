@@ -33,7 +33,7 @@ const Navbar = () => {
     ]
     const { authReducer, modalReducer } = useSelector((state: RootState) => state)
     const { isAuthenticated } = authReducer
-    const { } = modalReducer
+ 
     const dispatch = useDispatch()
     const handelCartButtonClick = () => {
         dispatch(setShow(true))
@@ -41,21 +41,6 @@ const Navbar = () => {
 
     }
 
-    const handelLoginButtonClick = () => {
-        if (isAuthenticated) {
-
-        } else {
-
-            dispatch(setProgressBarVisiblity({ shouldProgressBarVisible: true }))
-
-            setTimeout(() => {
-                dispatch(setProgressBarVisiblity({ shouldProgressBarVisible: false }))
-                handelCartButtonClick()
-
-            }, 500);
-
-        }
-    }
     const location = useLocation();
     return (
         <div>
