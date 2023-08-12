@@ -5,14 +5,17 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import AuthenticatedLayout from './Layout/Authenticated/AuthenticatedLayout';
-import Home from './Layout/Authenticated/Pages/Home/Home';
-import PetGuide from './Layout/Authenticated/Pages/PetGuide/PetGuide';
-import PetGuideDetail from './Layout/Authenticated/Pages/PetGuideDetail/PetGuideDetail';
-import ProductPage from './Layout/Authenticated/Pages/ProductPage/ProductPage';
-import Shop from './Layout/Authenticated/Pages/Shop/Shop';
+import Home from './Layout/Authenticated/Pages/Home';
+import PetGuide from './Layout/Authenticated/Pages/PetGuide';
+import PetGuideDetail from './Layout/Authenticated/Pages/PetGuideDetail';
+import ProductPage from './Layout/Authenticated/Pages/ProductPage';
+import Shop from './Layout/Authenticated/Pages/Shop';
 import Layout from './Layout/Layout';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Checkout from './Layout/Authenticated/Pages/Checkout';
+import ProductCart from './Layout/Authenticated/Pages/ProductCart';
+import ConsultAVet from './features/consultation/components/ConsultAVet';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +36,10 @@ const router = createBrowserRouter([
                 element: (<Home></Home>)
               },
               {
+                path: 'consult',
+                element: (<ConsultAVet></ConsultAVet>)
+              },
+              {
                 path: 'shop',
                 element: (<Shop></Shop>)
               },
@@ -48,6 +55,21 @@ const router = createBrowserRouter([
               {
                 path: 'profile/:id',
                 element: (<ProductPage></ProductPage>),
+
+              },
+              {
+                path: 'shop/:id',
+                element: (<ProductPage></ProductPage>),
+
+              },
+              {
+                path: 'checkout/:id',
+                element: (<ProductCart></ProductCart>),
+
+              },
+              {
+                path: 'payment/:id',
+                element: (<Checkout></Checkout>),
 
               },
 

@@ -1,19 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Post } from '../Layout/Authenticated/Services/ApiService';
 
-export const loginAction = createAsyncThunk('login',async (data:any)=>{
+export const loginAction = createAsyncThunk('login', async (data: any) => {
     console.log('data :>> ', data);
-    return  await Post({endpoint:'auth/signup',body:data})
+    return await Post({ endpoint: 'auth/signup', body: data })
 })
 
 
 
 export interface AuthReducer {
-    isAuthenticated:boolean
+    isAuthenticated: boolean
 }
 
-const initialState:AuthReducer = {
-    isAuthenticated: false 
+const initialState: AuthReducer = {
+    isAuthenticated: true
 }
 
 export const authSlice = createSlice({
@@ -31,19 +31,19 @@ export const authSlice = createSlice({
             state.isAuthenticated = false
         }
     },
-    extraReducers(builder){
-        builder.addCase(loginAction.pending,(state,action)=>{
+    extraReducers(builder) {
+        builder.addCase(loginAction.pending, (state, action) => {
             // store.dispatch(setProgressBarVisiblity({shouldProgressBarVisible:true}))}
-            
-            return {...state,}
-          })
+
+            return { ...state, }
+        })
 
         // builder.addCase(loginAction.fulfilled,(state,action)=>{
         //     store.dispatch(setProgressBarVisiblity({shouldProgressBarVisible:false}))
 
         // })
 
-      
+
 
         // builder.addCase(loginAction.rejected,(state,action)=>{
         //   store.dispatch(setProgressBarVisiblity({shouldProgressBarVisible:false}))

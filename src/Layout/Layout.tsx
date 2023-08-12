@@ -1,16 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import ModalComponent from '../Shared/Components/Modal/ModalComponent';
-import ProgressBar from '../Shared/Components/ProgressBar/ProgressBar';
+import ModalComponent from '../components/ModalComponent'
+import ProgressBar from '../components/ModalComponent';
 import { setIsAuthenticatedTrue } from '../State/AuthSlice';
-import { RootState } from '../Store/Store';
+import { RootState } from '../stores/Store';
 import AuthenticatedLayout from './Authenticated/AuthenticatedLayout';
-import Checkout from './Authenticated/Pages/Checkout/Checkout';
-import Home from './Authenticated/Pages/Home/Home';
-import PetGuide from './Authenticated/Pages/PetGuide/PetGuide';
-import PetGuideDetail from './Authenticated/Pages/PetGuideDetail/PetGuideDetail';
-import Shop from './Authenticated/Pages/Shop/Shop';
+import Checkout from './Authenticated/Pages/Checkout';
+import Home from './Authenticated/Pages/Home';
+import PetGuide from './Authenticated/Pages/PetGuide';
+import PetGuideDetail from './Authenticated/Pages/PetGuideDetail';
+import Shop from './Authenticated/Pages/Shop';
 import { isTokenAvailable } from './Authenticated/Services/AuthService';
+import MyProfile from '../features/profile/components/MyProfile';
+import ProductPage from './Authenticated/Pages/ProductPage';
+import ProductCart from './Authenticated/Pages/ProductCart';
+import ConsultAVet from '../features/consultation/components/ConsultAVet';
 const Layout = () => {
 
   const { modalReducer, progressBarReducer } = useSelector((state: RootState) => state)
@@ -24,35 +28,24 @@ const Layout = () => {
     dispatch(setIsAuthenticatedTrue())
   }
 
-  const getProgressBar = () => {
 
-    console.log('isProgressBarVisible :>> ', isProgressBarVisible);
-
-    if (isProgressBarVisible) {
-      return (<>
-        <ProgressBar></ProgressBar>
-
-      </>)
-    }
-    else {
-      return null
-    }
-  }
 
 
   return (
     <>
-      {
-        getProgressBar()
-      }
+
       <div className=''>
         <Routes>
           <Route path='' element={<AuthenticatedLayout></AuthenticatedLayout>} >
             <Route path='home' element={<Home></Home>} ></Route>
+            <Route path='consult' element={<ConsultAVet></ConsultAVet>} ></Route>
             <Route path='petguide' element={<PetGuide></PetGuide>}></Route>
             <Route path='petguide/:id' element={<PetGuideDetail></PetGuideDetail>}></Route>
-            <Route path='profile/:id' element={<Checkout></Checkout>}></Route>
+            <Route path='profile/:id' element={<MyProfile></MyProfile>}></Route>
             <Route path='shop' element={<Shop></Shop>} ></Route>
+            <Route path='shop/:id' element={<ProductPage></ProductPage>} ></Route>
+            <Route path='checkout/:id' element={<ProductCart></ProductCart>}></Route>
+            <Route path='payment/:id' element={<Checkout></Checkout>}></Route>
           </Route>
         </Routes>
       </div>
