@@ -1,7 +1,4 @@
-import React from 'react'
 import './AreYouVetBanner.css'
-import { dots } from '.'
-import ButtonComponent from '../ButtonComponent/ButtonComponent'
 
 const AreYouVetBanner = () => {
     return (

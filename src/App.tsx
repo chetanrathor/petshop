@@ -1,12 +1,7 @@
-import React, { useCallback } from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
 import './App.css';
 import Layout from './Layout/Layout';
-import { createBrowserRouter } from 'react-router-dom';
-import { Provider, useDispatch, useSelector } from 'react-redux';
 import { store } from './Store/Store';
-import { isTokenAvailable } from './Layout/Authenticated/Services/AuthService';
-import { setIsAuthenticatedFalse } from './Layout/Authenticated/State/AuthSlice';
 
 
 

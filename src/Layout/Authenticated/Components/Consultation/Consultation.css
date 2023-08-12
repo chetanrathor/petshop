@@ -1,0 +1,23 @@
+.consultation-text {
+  color: #2d2f55;
+  font-size: 1.125rem;
+  font-family: Nunito;
+  font-weight: 700;
+  line-height: 1.875rem;
+}
+
+.consultation_status {
+  color: var(--body-text, #68686a);
+  font-size: 1rem;
+  font-family: Lato;
+  line-height: 1.625rem;
+}
+
+.consultation_heading {
+  color: var(--body-text, #68686a);
+  font-size: 1rem;
+  font-family: Nunito;
+  font-weight: 700;
+  line-height: 1.1875rem;
+  text-transform: uppercase;
+}

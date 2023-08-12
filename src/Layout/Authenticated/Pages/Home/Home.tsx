@@ -1,22 +1,16 @@
-import React from 'react'
-import Toolkit from '../../../../Shared/Components/Toolkit/Toolkit'
-import Navbar from '../../../../Shared/Components/Navbar/Navbar'
+import AreYouVetBanner from '../../../../Shared/Components/AreYouVetBanner/AreYouVetBanner'
 import Hero from '../../../../Shared/Components/Hero/Hero'
+import Navbar from '../../../../Shared/Components/Navbar/Navbar'
+import Toolkit from '../../../../Shared/Components/Toolkit/Toolkit'
 import FeatureProduct from '../../Components/FeaturedProduct/FeatureProduct'
 import HomeProducts from '../../Components/HomeProducts/HomeProducts'
-import AreYouVetBanner from '../../../../Shared/Components/AreYouVetBanner/AreYouVetBanner'
 import LatestNews from '../../Components/LatestNews/LatestNews'
+import ProductImage from '../../Components/ProductImage/ProductImage'
 import ServicesOffered from '../../Components/ServicesOffered/ServicesOffered'
 import TopRatedProducts from '../../Components/TopRatedProducts/TopRatedProducts'
-import BreadCrumb from '../../../../Shared/Components/BreadCrumb/BreadCrumb'
-import Footer from '../../../../Shared/Components/Footer/Footer'
-import LatestPost from '../../../../Shared/Components/LatestPost/LatestPost'
-import BlogImage from '../../Components/BlogImage/BlogImage'
-import { useSelector } from 'react-redux'
 
 const Home = () => {
 
-  const count = useSelector((state: any) => state.authReducer.isAuthenticated)
  
   let heading = 'Now consult a vet from home '
   let subheading = 'Over 60% of pet problems can be diagnosed and solved by vets on a video call.'
@@ -32,6 +26,7 @@ const Home = () => {
       <TopRatedProducts></TopRatedProducts>
       <LatestNews></LatestNews>
       {/* <Footer></Footer>   */}
+      <ProductImage height='100' width='100 ' image='productImage.png' ></ProductImage>
     </div>
   )
 }

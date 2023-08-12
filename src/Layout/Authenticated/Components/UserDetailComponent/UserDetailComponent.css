@@ -1,0 +1,18 @@
+.userdetail_container {
+  max-width: 1260px;
+}
+.user_name {
+  color: var(--title-text, #2d2f55);
+  font-size: 1.25rem;
+  font-family: Nunito;
+  font-weight: 700;
+  line-height: 1.52681rem;
+}
+
+.user_phone {
+  color: var(--body-text, #68686a);
+  font-size: 1rem;
+  font-family: Nunito;
+  font-weight: 700;
+  line-height: 1.875rem;
+}

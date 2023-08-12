@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ReactNode } from "react";
-import Login from "../../UnAuthenticated/Components/Login/Login";
-import { MODAL_TYPES } from "../../../constant/modal-types";
+import { MODAL_TYPES } from "../constant/modal-types";
 
 
 export interface ModalReducer {

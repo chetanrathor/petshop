@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {Get, Post} from '../Services/ApiService' 
-import { store } from "../../../Store/Store";
-import { setProgressBarVisiblity } from "./ProgressBarSlice";
+import { Post } from '../Layout/Authenticated/Services/ApiService';
 
 export const loginAction = createAsyncThunk('login',async (data:any)=>{
     console.log('data :>> ', data);
