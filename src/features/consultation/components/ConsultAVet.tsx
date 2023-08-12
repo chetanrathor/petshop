@@ -1,14 +1,9 @@
-import React from 'react'
-import FeatureProduct from '../../../Layout/Authenticated/Components/FeatureProduct'
-import HomeProducts from '../../../Layout/Authenticated/Components/HomeProducts'
 import LatestNews from '../../../Layout/Authenticated/Components/LatestNews'
-import ServicesOffered from '../../../Layout/Authenticated/Components/ServicesOffered'
-import TopRatedProducts from '../../../Layout/Authenticated/Components/TopRatedProducts'
 import AreYouVetBanner from '../../../components/AreYouVetBanner'
 import Footer from '../../../components/Footer'
 import Hero from '../../../components/Hero'
-import Toolkit from '../../../components/Toolkit'
 import Navbar from '../../../components/Navbar'
+import Toolkit from '../../../components/Toolkit'
 import HowWeWork from './HowWeWork'
 
 const ConsultAVet = () => {

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react'
 import { Modal, ModalHeader } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { resetModalState } from '../State/ModalSlice'
@@ -7,8 +6,8 @@ import ForgetPassword from '../features/authentication/components/ForgetPassword
 import Login from '../features/authentication/components/Login'
 import Signup from '../features/authentication/components/Signup'
 import BookConsult from '../features/consultation/components/BookConsult'
-import Thankyou from '../features/consultation/components/Thankyou'
 import JoinAsVet from '../features/consultation/components/JoinAsVet'
+import Thankyou from '../features/consultation/components/Thankyou'
 
 interface PropType {
   show: boolean,
@@ -21,7 +20,7 @@ interface PropType {
 
 
 
-const ModalComponent = ({ show, handleClose, child }: PropType) => {
+const ModalComponent = ({ show, child }: PropType) => {
 
   const dispatch = useDispatch()
 

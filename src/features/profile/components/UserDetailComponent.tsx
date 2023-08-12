@@ -1,5 +1,3 @@
-import React from 'react'
-import ButtonComponent from '../../../components/button/ButtonComponent'
 const UserDetailComponent = () => {
     return (
         <div>

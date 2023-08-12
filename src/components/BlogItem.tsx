@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Image from './Image'
 
@@ -34,7 +33,6 @@ const BlogItem = ({ date, heading, id, subHeading, handelClick }: PropType) => {
 
           <Link to={`/petguide/${id}`} className='read_post'>Read Post</Link>
           <Image isPublicImage className='ms-2' path="arrow-right.png" height='14px' width='13px' alt=""></Image>
-          <img  />
         </div>
       </div>
     </div>

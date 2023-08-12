@@ -1,6 +1,5 @@
-import React, { ReactChild, ReactComponentElement } from 'react'
+import { ReactChild } from 'react'
 import { Button } from 'react-bootstrap'
-import Loader from '../Loader'
 type ButtonBackgroundColor = "primary" | "secondary" | "warning"
 interface ButtonComponentProps {
   handelClick?: () => void,

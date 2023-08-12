@@ -1,5 +1,3 @@
-import React from 'react'
-import { socialIcons, contactItems } from './Toolkit'
 import { Link } from 'react-router-dom'
 import { getKey } from '../utils'
 import Image from './Image'
