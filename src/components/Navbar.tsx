@@ -31,8 +31,6 @@ const Navbar = () => {
 
         }
     ]
-    const { authReducer, modalReducer } = useSelector((state: RootState) => state)
-    const { isAuthenticated } = authReducer
  
     const dispatch = useDispatch()
     const handelCartButtonClick = () => {
