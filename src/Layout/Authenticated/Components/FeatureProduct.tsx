@@ -1,29 +1,35 @@
 import MediumHeading from "../../../components/MediumHeading"
+import { getKey } from "../../../utils"
 
 const FeatureProduct = () => {
     const featureProducts = [
-
         {
+            id: 1,
             name: 'Food',
             imageSource: 'food.png'
         },
         {
+            id: 2,
             name: 'Treats & chews',
             imageSource: 'treat.png'
         },
         {
+            id: 3,
             name: 'Toys and accessories',
             imageSource: 'toy.png'
         },
         {
+            id: 4,
             name: 'Clothes',
             imageSource: 'cloths.png'
         },
         {
+            id: 5,
             name: 'Grooming',
             imageSource: 'grooming.png'
         },
-    ]
+    ];
+        
     return (
         <div>
             <div className="p-3 mt-5 feature__container">
@@ -36,7 +42,7 @@ const FeatureProduct = () => {
                                 return (
 
                                     <>
-                                        <div className="d-flex flex-column align-items-center justify-content-center feature_product_item">
+                                        <div key={getKey()} className="d-flex flex-column align-items-center justify-content-center feature_product_item">
                                             <div className="d-flex flex-row justify-content-center align-items-center category__item">
                                                 <img src={process.env.PUBLIC_URL + item.imageSource} className='feature_product_img' alt="" />
                                             </div>

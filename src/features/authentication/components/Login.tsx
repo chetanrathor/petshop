@@ -8,6 +8,7 @@ import { MODAL_TYPES } from '../../../constant/modal-types'
 import { SignupUserType } from '../../../constant/signup-types'
 import { getKey } from '../../../utils'
 import ButtonComponent from '../../../components/button/ButtonComponent'
+import ButtonText from '../../../components/button/ButtonText'
 
 const Login = () => {
   const inputElements = [
@@ -80,23 +81,25 @@ const Login = () => {
               <span className='w-100'>Remember me <span className=' float-end  ' onClick={() => { handelComponentChange(MODAL_TYPES.FORGET_PASSWORD) }}>Forgot password &nbsp;</span></span>
             </div>
           </div>
-          {/* <ButtonComponent canActivateLoader={canActivateLoader} shouldDisabel={shouldButtonDisable} bgColor='background-primary' content='Sign in' extraClass='w-100 py-2 mt-2' isSubmitButton={true} ></ButtonComponent> */}
+          <ButtonComponent backgroundColor='primary' disabled={false} className='w-100 py-2 mt-2' isSubmitButton={true} >
+            <ButtonText fontSize='medium'> Sign In</ButtonText>
+          </ButtonComponent>
         </Form>
         <div className="d-flex flex-row  mt-5 mx-4 ">
           <div className="col-5" onClick={(e) => { e.preventDefault(); changeActiveUserSignupType(SignupUserType.User) }}>
             <img src={getActiveUserImage(SignupUserType.User)} height='12.53px' width='12.53px' alt="" />
-            <span className='select_user_button'>Signin as user</span>
+            <span className='select_user_button cursor-pointer'>Signin as user</span>
           </div>
           <div className="col-2">
             <img src="Line.png" className='partition_line' height='1px' width='32px' alt="" />
           </div>
           <div className="col-5" onClick={(e) => { e.preventDefault(); changeActiveUserSignupType(SignupUserType.Vet) }}>
             <img src={getActiveUserImage(SignupUserType.Vet)} height='12.53px' width='12.53px' alt="" />
-            <span className='select_user_button'>Signin as vet</span>
+            <span className='select_user_button cursor-pointer'>Signin as vet</span>
           </div>
         </div>
         <div className='terms_and_condition_para mt-5'>
-          <text>Don’t have an account? <span className='color-primary text-decoration-underline' onClick={() => { handelComponentChange(MODAL_TYPES.SIGNUP) }} >Sign up </span></text>
+          <text>Don’t have an account? <span className='color-primary text-decoration-underline cursor-pointer_2' onClick={() => { handelComponentChange(MODAL_TYPES.SIGNUP) }} >Sign up </span></text>
         </div>
       </div>
     </div>

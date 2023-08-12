@@ -4,6 +4,7 @@ import Navbar from '../../../components/Navbar'
 import ShopFilter from '../../../components/ShopFilter'
 import ShopItem from '../../../components/ShopItem'
 import Toolkit from '../../../components/Toolkit'
+import { getKey } from '../../../utils'
 const Shop = () => {
   const shopFilter = [
     {
@@ -56,7 +57,7 @@ const Shop = () => {
           <div className=" col-9 d-flex flex-row justify-content-end gap-4 flex-wrap">
             {ShopItemArray.map((item) => {
               return (<>
-                <ShopItem></ShopItem>
+                <ShopItem key={getKey()}></ShopItem>
 
               </>)
             })}

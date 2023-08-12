@@ -1,6 +1,7 @@
 import React from 'react'
 import { ConsultationType } from '../../../Types/Consultation.types'
 import { Link } from 'react-router-dom'
+import { getKey } from '../../../utils'
 
 interface propType {
     consulation: ConsultationType
@@ -36,7 +37,7 @@ const Consultation = (props: propType) => {
 
             <div className=" d-flex flex-row  p-5 border-bottom">
                 {headings.map((item) => {
-                    return (<div className='col-2 d-flex flex-column  consultation-text color-gre'>
+                    return (<div key={getKey()} className='col-2 d-flex flex-column  consultation-text color-gre'>
                         {item.value}
                     </div>)
                 })}
@@ -63,7 +64,7 @@ const Consultation = (props: propType) => {
                     keys.map((item) => {
                         if (item !== 'id') {
                             return (<>
-                                <div className="col-2 d-flex flex-column  consultation-text">
+                                <div key={getKey()} className="col-2 d-flex flex-column  consultation-text">
                                     {(item === 'makeCallStatus' ? <Link to={consulation['id']}>{consulation[item]}</Link> : consulation[item])}
                                     {(item === 'total' ? <div className='consultation_status'>Connecting with vet Soon</div> : null)}
                                 </div>

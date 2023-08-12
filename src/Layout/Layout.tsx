@@ -14,6 +14,7 @@ import { isTokenAvailable } from './Authenticated/Services/AuthService';
 import MyProfile from '../features/profile/components/MyProfile';
 import ProductPage from './Authenticated/Pages/ProductPage';
 import ProductCart from './Authenticated/Pages/ProductCart';
+import ConsultAVet from '../features/consultation/components/ConsultAVet';
 const Layout = () => {
 
   const { modalReducer, progressBarReducer } = useSelector((state: RootState) => state)
@@ -37,6 +38,7 @@ const Layout = () => {
         <Routes>
           <Route path='' element={<AuthenticatedLayout></AuthenticatedLayout>} >
             <Route path='home' element={<Home></Home>} ></Route>
+            <Route path='consult' element={<ConsultAVet></ConsultAVet>} ></Route>
             <Route path='petguide' element={<PetGuide></PetGuide>}></Route>
             <Route path='petguide/:id' element={<PetGuideDetail></PetGuideDetail>}></Route>
             <Route path='profile/:id' element={<MyProfile></MyProfile>}></Route>

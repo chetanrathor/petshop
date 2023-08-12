@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import BlogItem from '../../../components/BlogItem'
+import { getKey } from '../../../utils'
 const Blogs = () => {
 
     const blogs = [
@@ -133,7 +134,7 @@ const Blogs = () => {
                     {
                         blogs.map((item) => {
                             return (<>
-                                <BlogItem handelClick={navigateToDetailPage} date={item.date} heading={item.heading} id={item.id} subHeading={item.subHeading}></BlogItem>
+                                < BlogItem key={getKey()} handelClick={navigateToDetailPage} date={item.date} heading={item.heading} id={item.id} subHeading={item.subHeading}></BlogItem>
                             </>)
                         })
                     }

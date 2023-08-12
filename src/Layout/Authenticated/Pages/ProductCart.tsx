@@ -9,6 +9,7 @@ import Footer from '../../../components/Footer'
 import ServicesOffered from '../Components/ServicesOffered'
 import ButtonText from '../../../components/button/ButtonText'
 import { useNavigate } from 'react-router-dom'
+import { getKey } from '../../../utils'
 
 
 const ProductCart = () => {
@@ -43,7 +44,7 @@ const ProductCart = () => {
                     {
                         heading.map((item) => {
                             return (<>
-                                <div className={`col-2 d-flex flex-column px-5  heading-text color-gre ${item.extraclass}`} >{item.name}</div>
+                                <div key={getKey()} className={`col-2 d-flex flex-column px-5  heading-text color-gre ${item.extraclass}`} >{item.name}</div>
 
                             </>)
                         })
@@ -89,9 +90,12 @@ const ProductCart = () => {
                         </div>
                         <div className="mt-3 sub-total-price">$32.39</div>
                         <div className="d-flex mt-3 flex-row justify-content-end">
-                            <ButtonComponent className='px-5 py-3 border ' handelClick={() => {handelCheckoutClick() }} isSubmitButton={false} backgroundColor='primary' disabled={false} >
-                                <ButtonText className='color-' fontSize='small' >Checkout</ButtonText>
-                            </ButtonComponent>
+                            <form action='/create-checkout-session' method='post'>
+                                <ButtonComponent className='px-5 py-3 border ' handelClick={() => { handelCheckoutClick() }} isSubmitButton={true} backgroundColor='primary' disabled={false} >
+
+                                    <ButtonText className='color-' fontSize='small' >Checkout</ButtonText>
+                                </ButtonComponent>
+                            </form>
                             {/* <ButtonComponent bgColor='background-primary' canActivateLoader={false} content='Checkout' isSubmitButton={false} shouldDisabel={false} extraClass='py-3 px-4 border-0 '  ></ButtonComponent> */}
                         </div>
                     </div>

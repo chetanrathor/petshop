@@ -1,14 +1,23 @@
 import React from 'react'
 import Address from '../../../features/profile/components/Address'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import BreadCrumb from '../../../components/BreadCrumb'
 import ButtonComponent from '../../../components/button/ButtonComponent'
 import Toolkit from '../../../components/Toolkit'
 import ButtonText from '../../../components/button/ButtonText'
 import Navbar from '../../../components/Navbar'
+import { post } from '../../../features/checkout/api/checkout'
 
 
 const Checkout = () => {
+    const navigate = useNavigate()
+
+    const handelOrderPlace = async () => {
+        const res = await post().catch((err) => err)
+        console.log('res', res)
+        // navigate(res.session, { replace: false })
+        window.location.href = res.session;
+    }
     return (
         <div>
             <Toolkit></Toolkit>
@@ -117,9 +126,12 @@ const Checkout = () => {
 
                         {/* <ButtonComponent bgColor='background-primary' canActivateLoader={false} isSubmitButton={false} shouldDisabel={false} content='Place Order' extraClass='px-5 py-4 border-0 mt-3'></ButtonComponent> */}
                         {/* <ButtonComponent backgroundColor='primary' disabled={false} isSubmitButton={false} handelClick={() => { }} > <ButtonText fontSize='medium'  > hle </ButtonText> </ButtonComponent> */}
-                        <ButtonComponent className='px-5 py-3  border ' handelClick={() => { }} isSubmitButton={false} backgroundColor='primary' disabled={false} >
+
+
+                        <ButtonComponent className='px-5 py-3  border ' handelClick={() => { handelOrderPlace() }} isSubmitButton={false} backgroundColor='primary' disabled={false} >
                             <ButtonText className='color-' fontSize='small' >Place Order</ButtonText>
                         </ButtonComponent>
+
                         <div className=" mt-2 d-flex flex-row">
                             <input type="checkbox" className='form-check-input mt-0 checkbox_height_width' />
                             <div className="ms-2 tandc">I accept the <Link to={''} className='color-primary text-decoration-underline'>terms and conditions</Link></div>

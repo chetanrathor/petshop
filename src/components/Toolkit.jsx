@@ -1,35 +1,44 @@
 import React from 'react'
 import { socialIcons, contactItems } from './Toolkit'
 import { Link } from 'react-router-dom'
+import { getKey } from '../utils'
+import Image from './Image'
 const Toolkit = () => {
 
-   const socialIcons = [
+  const socialIcons = [
     {
       name: 'facebook',
       width: '13px',
       height: '15px',
-      imageSource: '/facebook.png',
+      imageSource: 'facebook.png',
+      to: 'https://www.facebook.com'
 
     },
     {
       name: 'instagram',
       width: '15px',
       height: '15px',
-      imageSource: '/instagram.png',
+      imageSource: 'instagram.png',
+      to: 'https://www.instagram.com'
+
 
     },
     {
       name: 'twitter',
       width: '15px',
       height: '16px',
-      imageSource: '/twitter.png',
+      imageSource: 'twitter.png',
+      to: 'https://www.twitter.com'
+
 
     },
     {
       name: 'linkedin',
       width: '15px',
       height: '12px',
-      imageSource: '/linkedin.png',
+      imageSource: 'linkedin.png',
+      to: 'https://www.linkedin.com'
+
 
     }
   ]
@@ -60,7 +69,10 @@ const Toolkit = () => {
             {
               socialIcons.map((item) => {
                 return (
-                  <img src={process.env.PUBLIC_URL + item.imageSource} height={item.height} width={item.width} alt={item.name} ></img>
+                  // <img  ></img>
+                  <Link to={item.to} target='_blank'>
+                    <Image key={getKey()} path={item.imageSource} height={item.height} width={item.width} alt={item.name}></Image>
+                  </Link>
                 )
               })
             }
@@ -70,7 +82,7 @@ const Toolkit = () => {
               {
                 contactItems.map((item) => {
                   return (
-                    <div>
+                    <div key={getKey()}>
                       <img className='m-0 ms-md-5 me-1' src={process.env.PUBLIC_URL + item.icon} height={item.height} width={item.width} alt={item.name}>
                       </img>
                       <Link to={item.link}><span className='contact_text'>{item.text}</span></Link>

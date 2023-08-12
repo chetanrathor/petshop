@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import { getKey } from "../utils"
+import Image from "./Image"
 
 const Footer = () => {
     const usefullLink1 = [
@@ -41,6 +43,28 @@ const Footer = () => {
 
         }
     ]
+
+    const socialLinks = [
+        {
+            src: 'footersocial1.png',
+            height: '30px',
+            width: '17px',
+            to: 'https://www.facebook.com'
+        },
+        {
+            src: 'footersocial2.png',
+            height: '31px',
+            width: '26px',
+            to: 'https://www.facebook.com'
+        },
+        {
+            src: 'footersocial3.png',
+            height: '29px',
+            width: '30px',
+            to: 'https://www.facebook.com'
+        }
+    ]
+
     return (
         <div>
             <div className="p-2 pt-md-5 p-md-0 d-flex flex-column footer_container">
@@ -56,9 +80,19 @@ const Footer = () => {
                         </p>
                         <div className="d-flex flex-row">
                             <div className="col-4 d-flex flex-row justify-content-between social_icon_container">
-                                <img src={process.env.PUBLIC_URL + "/footersocial1.png"} width='15px' height='30px' alt="" />
-                                <img src={process.env.PUBLIC_URL + "/footersocial2.png"} width='27px' height='30px' alt="" />
-                                <img src={process.env.PUBLIC_URL + "/footersocial3.png"} height='30px' width='29px' alt="" />
+                                {
+                                    socialLinks.map((item) => {
+
+                                        return (
+
+                                            <Link to={item.to} target="_blank">
+                                                <Image alt="" height={item.height} isPublicImage path={item.src} width={item.width} ></Image>
+
+                                            </Link>
+                                        )
+
+                                    })
+                                }
                             </div>
                         </div>
                     </div>
@@ -70,7 +104,7 @@ const Footer = () => {
                                     {
                                         usefullLink1.map((item) => {
                                             return (<>
-                                                <div className='mt-3'>
+                                                <div key={getKey()} className='mt-3'>
                                                     <img src={process.env.PUBLIC_URL + "/Active-dot.png"} alt="" height='8px' width='8px' />
                                                     <span className='ms-2 consult'>{item.link}</span>
                                                 </div>
@@ -82,7 +116,7 @@ const Footer = () => {
                                     {
                                         usefullLink2.map((item) => {
                                             return (<>
-                                                <div className='mt-3'>
+                                                <div key={getKey()} className='mt-3'>
                                                     <img src={process.env.PUBLIC_URL + "/Active-dot.png"} alt="" height='8px' width='8px' />
                                                     <Link to={item.path} className='ms-2 consult'>{item.link}</Link>
                                                 </div>

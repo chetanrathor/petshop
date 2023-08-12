@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { getKey } from '../utils'
 interface FilterItemType {
     name: string,
     id: string,
@@ -37,7 +38,7 @@ const ShopFilter = ({ heading, filterItems }: PropType) => {
                     {
                         filterItems.map((item) => {
                             return (<>
-                                <div className="d-flex flex-row">
+                                <div key={getKey()} className="d-flex flex-row">
                                     <div className="col-2 ">
                                         <div className="form-check">
                                             <input onChange={()=>{setActiveFilte(item.id)}} checked={activeFilter===item.id} className="form-check-input" type="radio" name={item.name} id={item.id} />

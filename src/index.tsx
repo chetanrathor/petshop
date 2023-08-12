@@ -15,6 +15,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Checkout from './Layout/Authenticated/Pages/Checkout';
 import ProductCart from './Layout/Authenticated/Pages/ProductCart';
+import ConsultAVet from './features/consultation/components/ConsultAVet';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
               {
                 path: 'home',
                 element: (<Home></Home>)
+              },
+              {
+                path: 'consult',
+                element: (<ConsultAVet></ConsultAVet>)
               },
               {
                 path: 'shop',

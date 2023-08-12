@@ -1,5 +1,6 @@
 import React from 'react'
 import FeatureProductItem from '../../../components/FeatureProductItem'
+import { getKey } from '../../../utils'
 const HomeProducts = () => {
 
     let dummyData = [1, 2, 3, 4, 5, 6, 7, 8]
@@ -10,7 +11,7 @@ const HomeProducts = () => {
                     {
                         dummyData.map((item) => {
                             return (<>
-                                <FeatureProductItem></FeatureProductItem>
+                                <FeatureProductItem key={getKey()}></FeatureProductItem>
 
                             </>)
                         })

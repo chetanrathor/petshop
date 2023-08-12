@@ -1,5 +1,6 @@
 import MediumHeading from "../../../components/MediumHeading"
 import TopRatedProductItem from "../../../components/TopRatedProductItem"
+import { getKey } from "../../../utils"
 
 const TopRatedProducts = () => {
   const topRatedProducts = [
@@ -71,7 +72,7 @@ const TopRatedProducts = () => {
               topRatedProducts.map((item) => {
                 return (<>
 
-                  <TopRatedProductItem imgSource={item.imgSource} name={item.name} price={item.price} rating={item.rating} ></TopRatedProductItem>
+                  <TopRatedProductItem key={getKey()} imgSource={item.imgSource} name={item.name} price={item.price} rating={item.rating} ></TopRatedProductItem>
                 </>)
               })
             }

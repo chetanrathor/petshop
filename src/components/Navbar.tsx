@@ -7,6 +7,7 @@ import { MODAL_TYPES } from '../constant/modal-types'
 import { RootState } from '../stores/Store'
 import ButtonText from './button/ButtonText'
 import Image from './Image'
+import { getKey } from '../utils'
 const Navbar = () => {
     const linkItems = [
         {
@@ -16,7 +17,7 @@ const Navbar = () => {
         },
         {
             name: 'Consult a vet',
-            path: '/home',
+            path: '/consult',
 
         },
         {
@@ -73,7 +74,7 @@ const Navbar = () => {
                             linkItems.map((item) => {
                                 return (
                                     <>
-                                        <div className="d-flex flex-column align-items-center item">
+                                        <div key={getKey()} className="d-flex flex-column align-items-center item">
                                             <Link to={item.path}>{item.name}</Link>
                                             {location.pathname === item.path ?
                                                 <Image isPublicImage alt='active dot' height={'8px'} width={'8px'} path='Active-dot.png' className='mt-2' ></Image>

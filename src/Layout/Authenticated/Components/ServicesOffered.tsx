@@ -1,4 +1,5 @@
 import ServicesCart from "../../../components/ServicesCart"
+import { getKey } from "../../../utils"
 
 const ServicesOffered = () => {
 
@@ -44,7 +45,7 @@ const ServicesOffered = () => {
                     servicesCarts.map((item) => {
                         return (
                             <>
-                                <ServicesCart iconHeight={item.iconHeight} iconWidth={item.iconWidth} bgClass={item.bgClass} heading={item.heading} iconSource={item.iconSource} subheading={item.subheading}></ServicesCart>
+                                <ServicesCart key={getKey()} iconHeight={item.iconHeight} iconWidth={item.iconWidth} bgClass={item.bgClass} heading={item.heading} iconSource={item.iconSource} subheading={item.subheading}></ServicesCart>
 
                             </>
                         )

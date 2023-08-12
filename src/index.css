@@ -212,6 +212,10 @@ input:checked {
   max-width: 1264px;
 }
 
+.book_consult_heading {
+  font-size: '36px';
+}
+
 
 .select_pet {
   font-family: 'Nunito';
@@ -656,20 +660,20 @@ input:checked {
 
 .dot1 {
   position: relative;
-  left: 20.52%;
-  top: 36px;
+  left: 26rem;
+  top: 6rem;
 }
 
 .dot2 {
   position: relative;
-  left: 3.52%;
-  top: 70px;
+  left: 37rem;
+  top: 11rem;
 }
 
 .dot3 {
   position: relative;
-  left: 88.52%;
-  top: 21px;
+  left: 22rem;
+  top: 18rem;
 }
 
 .dot4 {
@@ -1619,4 +1623,35 @@ body {
 
 
   color: #FFFFFF;
+}
+
+.fs-36px {
+  font-size: '32px';
+}
+
+.font-color-secondary {
+  color: #2D2F55;
+}
+
+.font-color-warning {
+  color: #68686A;
+}
+
+.nunito {
+  font-family: Nunito;
+}
+
+.cursor-pointer_2 {
+  cursor: pointer;
+}
+
+.how-we-work-item_subheading {
+  color: var(--body-text, #68686A);
+  text-align: center;
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  /* 157.143% */
 }

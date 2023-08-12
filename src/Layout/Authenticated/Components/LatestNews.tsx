@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import BlogItem from '../../../components/BlogItem'
 import MediumHeading from '../../../components/MediumHeading'
+import { getKey } from '../../../utils'
 
 const LatestNews = () => {
   const petGuids = [
@@ -37,7 +38,7 @@ const LatestNews = () => {
             {
               petGuids.map((item) => {
                 return (<>
-                  <BlogItem handelClick={() => {
+                  <BlogItem key={getKey()} handelClick={() => {
                     navigate('/petguide/:id')
                   }} date={item.date} heading={item.heading} subHeading={item.subHeading} id={item.id}></BlogItem>
 

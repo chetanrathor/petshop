@@ -1,5 +1,15 @@
+import { useDispatch } from "react-redux"
+import ButtonComponent from "./button/ButtonComponent"
+import ButtonText from "./button/ButtonText"
+import { setChild, setShow } from "../State/ModalSlice"
+import { MODAL_TYPES } from "../constant/modal-types"
 
 const AreYouVetBanner = () => {
+    const dispatch = useDispatch()
+    const handelJoinAsVetClick = () => {
+        dispatch(setShow(true))
+        dispatch(setChild(MODAL_TYPES.JOIN_AS_VET))
+    }
     const dots = [
         {
             path: 'AYVDot1.png',
@@ -34,7 +44,7 @@ const AreYouVetBanner = () => {
         <div>
             <div className=" mt-5 banner__container">
                 <div className="p-3 d-flex flex-column justify-content-center align-items-center banner__wrapper">
-                    {/* <div className=" dot_container">
+                    <div className=" dot_container">
 
                         {
                             dots.map((item) => {
@@ -47,12 +57,14 @@ const AreYouVetBanner = () => {
                             })
                         }
 
-                    </div> */}
+                    </div>
                     <h1 className='AYV_heading'>Are you a vet?</h1>
                     <p className='mt-2 sub_headings'>
                         We would love to work with you. Send us a message and we’ll be in touch with you <br /> right away to onboard you to our platform.
                     </p>
-                    {/* <ButtonComponent bgColor=''  isPrimary={true}></ButtonComponent> */}
+                    <ButtonComponent handelClick={() => { handelJoinAsVetClick() }} backgroundColor="primary" disabled={false} isSubmitButton={false} className="py-3 px-5" >
+                        <ButtonText fontSize="large"> Join As Vet</ButtonText>
+                    </ButtonComponent>
                 </div>
             </div>
         </div>

@@ -10,6 +10,7 @@ import FeatureProductItem from '../../../components/FeatureProductItem'
 import Footer from '../../../components/Footer'
 import ButtonText from '../../../components/button/ButtonText'
 import { useNavigate } from 'react-router-dom'
+import { getKey } from '../../../utils'
 const ProductPage = () => {
     const navigate = useNavigate()
 
@@ -78,7 +79,7 @@ const ProductPage = () => {
 
                 {
                     similarProducts.map((item) => (<>
-                        <FeatureProductItem></FeatureProductItem>
+                        <FeatureProductItem key={getKey()}></FeatureProductItem>
                     </>))
                 }
             </div>
