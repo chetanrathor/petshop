@@ -1655,3 +1655,8 @@ body {
   line-height: 22px;
   /* 157.143% */
 }
+
+.cart-btn {
+  border-radius: 8px !important;
+  border: 1px solid #F84072 !important;
+}

@@ -1,16 +1,23 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setChild, setShow } from '../State/ModalSlice'
 import { MODAL_TYPES } from '../constant/modal-types'
 import ButtonComponent from './button/ButtonComponent'
 import ButtonText from './button/ButtonText'
+import { RootState } from '../stores/Store'
 const Hero = ({ heading, subheading }: { heading: string, subheading: string }) => {
 
     const dispatch = useDispatch()
+    const isAuthenticated = useSelector((state: RootState) => state.authReducer.isAuthenticated)
 
     const handelBookConsultClick = () => {
         dispatch(setShow(true))
-        dispatch(setChild(MODAL_TYPES.BOOK_CONSULT))
+        let child = MODAL_TYPES.LOGIN
+        if (isAuthenticated) {
+            child = MODAL_TYPES.BOOK_CONSULT
+        }
+        dispatch(setChild(child))
+
     }
 
     return (

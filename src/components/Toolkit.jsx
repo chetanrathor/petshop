@@ -5,6 +5,7 @@ const Toolkit = () => {
 
   const socialIcons = [
     {
+      id: 1,
       name: 'facebook',
       width: '13px',
       height: '15px',
@@ -13,6 +14,7 @@ const Toolkit = () => {
 
     },
     {
+      id: 2,
       name: 'instagram',
       width: '15px',
       height: '15px',
@@ -22,6 +24,7 @@ const Toolkit = () => {
 
     },
     {
+      id: 3,
       name: 'twitter',
       width: '15px',
       height: '16px',
@@ -31,6 +34,7 @@ const Toolkit = () => {
 
     },
     {
+      id: 4,
       name: 'linkedin',
       width: '15px',
       height: '12px',
@@ -43,6 +47,7 @@ const Toolkit = () => {
 
   const contactItems = [
     {
+      id: 1,
       name: 'phone',
       icon: '/phone.png',
       height: '15px',
@@ -51,6 +56,7 @@ const Toolkit = () => {
       link: `tel://0000 - 123456789`
     },
     {
+      id: 2,
       name: 'email',
       icon: '/mail.png',
       height: '14px',
@@ -69,7 +75,7 @@ const Toolkit = () => {
                 return (
                   // <img  ></img>
                   <Link to={item.to} target='_blank'>
-                    <Image key={getKey()} path={item.imageSource} height={item.height} width={item.width} alt={item.name}></Image>
+                    <Image key={item.id} path={item.imageSource} height={item.height} width={item.width} alt={item.name}></Image>
                   </Link>
                 )
               })
@@ -80,7 +86,7 @@ const Toolkit = () => {
               {
                 contactItems.map((item) => {
                   return (
-                    <div key={getKey()}>
+                    <div key={item.id}>
                       <img className='m-0 ms-md-5 me-1' src={process.env.PUBLIC_URL + item.icon} height={item.height} width={item.width} alt={item.name}>
                       </img>
                       <Link to={item.link}><span className='contact_text'>{item.text}</span></Link>

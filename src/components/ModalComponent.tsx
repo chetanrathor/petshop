@@ -8,6 +8,7 @@ import Signup from '../features/authentication/components/Signup'
 import BookConsult from '../features/consultation/components/BookConsult'
 import JoinAsVet from '../features/consultation/components/JoinAsVet'
 import Thankyou from '../features/consultation/components/Thankyou'
+import Otp from '../features/authentication/components/Otp'
 
 interface PropType {
   show: boolean,
@@ -32,13 +33,15 @@ const ModalComponent = ({ show, child }: PropType) => {
       case MODAL_TYPES.SIGNUP:
         return { element: (<Signup></Signup>), size: undefined }
       case MODAL_TYPES.JOIN_AS_VET:
-        return { element: (<JoinAsVet></JoinAsVet>), size: "xl" as unknown as any}
+        return { element: (<JoinAsVet></JoinAsVet>), size: "xl" as unknown as any }
       case MODAL_TYPES.FORGET_PASSWORD:
         return { element: (<ForgetPassword></ForgetPassword>), size: undefined }
       case MODAL_TYPES.BOOK_CONSULT:
         return { element: (<BookConsult></BookConsult>), size: "xl" as unknown as any }
       case MODAL_TYPES.THANK_YOU:
         return { element: (<Thankyou></Thankyou>), size: undefined }
+      case MODAL_TYPES.OTP_VERIFICATION:
+        return { element: (<Otp></Otp>), size: undefined }
       default:
         return { element: (<BookConsult></BookConsult>), size: "xl" as unknown as any }
 

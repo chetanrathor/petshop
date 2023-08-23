@@ -9,6 +9,7 @@ import MyConsultations from './MyConsultations'
 import MyOrders from './MyOrders'
 import Shipping from './Shipping'
 import UserDetailComponent from './UserDetailComponent'
+import Toolkit from '../../../components/Toolkit'
 
 const MyProfile = () => {
   const profileTabState: ActiveTab = useSelector((state: RootState) => state.profileTabReducer.activeTab)
@@ -32,8 +33,9 @@ const MyProfile = () => {
 
   return (
     <div className=''>
-    <Navbar></Navbar>
-      <BreadCrumb breadCrumbItems={[{ name: 'HOME' }, { name: 'My Profile' }]}></BreadCrumb>
+      <Toolkit></Toolkit>
+      <Navbar></Navbar>
+      <BreadCrumb breadCrumbItems={[{ name: 'HOME', path: '/' }, { name: 'My Profile', path: '/myprofile/:id' }]}></BreadCrumb>
 
       <div className="border rounded-4  m-auto  my-5 mw-1264  ">
         <TabsComponent></TabsComponent>

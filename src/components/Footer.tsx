@@ -1,8 +1,31 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { getKey } from "../utils"
 import Image from "./Image"
+import { useDispatch, useSelector } from "react-redux"
+import { RootState, store } from "../stores/Store"
+import { setChild, setShow } from "../State/ModalSlice"
+import { MODAL_TYPES } from "../constant/modal-types"
 
 const Footer = () => {
+    const navigate = useNavigate()
+    const auth = useSelector((state: RootState) => state.authReducer)
+    const dispatch = useDispatch<typeof store.dispatch>()
+    const handelClick = (isRequireAuthentication: boolean, path?: string) => {
+        if (isRequireAuthentication) {
+
+            if (auth.isAuthenticated) {
+                navigate('/')
+            } else {
+                dispatch(setShow(true))
+                dispatch(setChild(MODAL_TYPES.LOGIN))
+            }
+        } else {
+           window.scrollTo({top:0,left:0,behavior:'smooth'})
+            navigate(path ?? '/',{preventScrollReset:true})
+        }
+
+
+    }
     const usefullLink1 = [
         {
             link: 'Consult',
@@ -12,13 +35,13 @@ const Footer = () => {
         },
         {
             link: 'Shop',
-            path: '/',
+            path: '/shop',
 
 
         },
         {
             link: 'Pet guide',
-            path: '/',
+            path: '/petguide',
 
 
         }
@@ -104,9 +127,9 @@ const Footer = () => {
                                     {
                                         usefullLink1.map((item) => {
                                             return (<>
-                                                <div key={getKey()} className='mt-3'>
+                                                <div className='mt-3 cursor-pointer_2'>
                                                     <img src={process.env.PUBLIC_URL + "/Active-dot.png"} alt="" height='8px' width='8px' />
-                                                    <span className='ms-2 consult'>{item.link}</span>
+                                                    <span onClick={() => { handelClick(false,item.path) }} className='ms-2 consult'>{item.link}</span>
                                                 </div>
                                             </>)
                                         })
@@ -116,9 +139,9 @@ const Footer = () => {
                                     {
                                         usefullLink2.map((item) => {
                                             return (<>
-                                                <div key={getKey()} className='mt-3'>
+                                                <div className='mt-3 cursor-pointer_2'>
                                                     <img src={process.env.PUBLIC_URL + "/Active-dot.png"} alt="" height='8px' width='8px' />
-                                                    <Link to={item.path} className='ms-2 consult'>{item.link}</Link>
+                                                    <span onClick={() => { handelClick(true) }} className='ms-2 consult'>{item.link}</span>
                                                 </div>
                                             </>)
                                         })

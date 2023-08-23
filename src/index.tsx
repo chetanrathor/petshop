@@ -16,6 +16,7 @@ import reportWebVitals from './reportWebVitals';
 import Checkout from './Layout/Authenticated/Pages/Checkout';
 import ProductCart from './Layout/Authenticated/Pages/ProductCart';
 import ConsultAVet from './features/consultation/components/ConsultAVet';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -93,9 +94,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+  // <GoogleOAuthProvider clientId='776539522023-j8bru3hgob4tq7cnbo2e7p0406o2h57b.apps.googleusercontent.com' >
   <React.StrictMode >
     <RouterProvider router={router} />
   </React.StrictMode>
+  // </GoogleOAuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

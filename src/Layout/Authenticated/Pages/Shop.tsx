@@ -35,9 +35,11 @@ const Shop = () => {
   ]
   const breadCrumb = [
     {
-      name: 'Home'
+      name: 'Home',
+      path:'/'
     }, {
-      name: 'Shop'
+      name: 'Shop',
+      path:'/shop'
     }
   ]
 

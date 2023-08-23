@@ -1,4 +1,19 @@
+import { useDispatch } from "react-redux"
+import ButtonComponent from "../../../components/button/ButtonComponent"
+import ButtonText from "../../../components/button/ButtonText"
+import { store } from "../../../stores/Store"
+import { setIsAuthenticatedFalse } from "../../authentication/stores/AuthSlice"
+import { useNavigate } from "react-router-dom"
+
 const UserDetailComponent = () => {
+    const dispatch = useDispatch<typeof store.dispatch>()
+    const navigate = useNavigate()
+    const handelLogout = () => {
+
+        localStorage.removeItem('authentication')
+        dispatch(setIsAuthenticatedFalse())
+        navigate('/')
+    }
     return (
         <div>
             <div className="d-flex flex-row p-5  m-auto userdetail_container">
@@ -20,10 +35,15 @@ const UserDetailComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-4 d-flex justify-content-end  ">
-                    <div className="col-2">
+                <div className="col-4 d-flex  justify-content-end  ">
+                    <div className="col-3 d-flex flex-column gap-3">
 
-                        {/* <ButtonComponent bgColor='background-primary' canActivateLoader={false} content='Edit' isSubmitButton={false} shouldDisabel={false} extraClass='border-0 p-3' handelClick={() => { }}></ButtonComponent> */}
+                        <ButtonComponent backgroundColor="primary" disabled={false} isSubmitButton={false} className="" >
+                            <ButtonText fontSize="medium" >Edit </ButtonText>
+                        </ButtonComponent>
+                        <ButtonComponent handelClick={() => { handelLogout() }} backgroundColor="primary" disabled={false} isSubmitButton={false} className="" >
+                            <ButtonText fontSize="medium" >Logout </ButtonText>
+                        </ButtonComponent>
                     </div>
                 </div>
             </div>
