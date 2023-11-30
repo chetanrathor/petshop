@@ -16,7 +16,7 @@ const ProductCart = () => {
     const navigate = useNavigate()
 
     const handelCheckoutClick = () => {
-        navigate('/payment/1')
+        // navigate('/payment/1')
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 

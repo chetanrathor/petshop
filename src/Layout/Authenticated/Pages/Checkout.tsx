@@ -14,7 +14,7 @@ const Checkout = () => {
     const handelOrderPlace = async () => {
         const res = await post().catch((err) => err)
         console.log('res', res)
-        window.location.href = res.session;
+        // window.location.href = res.session;
     }
     return (
         <div>

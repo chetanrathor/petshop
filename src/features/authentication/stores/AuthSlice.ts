@@ -7,7 +7,7 @@ import { ApiResponse } from "../../../Types/types";
 import { removeToken, setToken } from "../utils/token.service";
 
 const initialState: AuthReducer = {
-    isAuthenticated: false,
+    isAuthenticated: true,
     message: '',
     stage: 1,
     user: {

@@ -50,11 +50,15 @@ const Shop = () => {
       <Toolkit></Toolkit>
       <Navbar></Navbar>
       <BreadCrumb breadCrumbItems={breadCrumb}></BreadCrumb>
-      <div className="m-auto shop_container">
+      <div className="m-auto shop_container mt-5">
         <div className="d-flex flex-row">
-          <div className="col-3">
+          <div className="col-3 d-flex flex-column">
             <ShopFilter filterItems={shopFilter} heading='Pet species'></ShopFilter>
             <ShopFilter filterItems={shopFilter} heading='Pet species'></ShopFilter>
+            <ShopFilter filterItems={shopFilter} heading='Categories'></ShopFilter>
+            <ShopFilter filterItems={shopFilter} heading='Offers'></ShopFilter>
+            <ShopFilter filterItems={shopFilter} heading='Breed type'></ShopFilter>
+            <ShopFilter filterItems={shopFilter} heading='Brand'></ShopFilter>
           </div>
           <div className=" col-9 d-flex flex-row justify-content-end gap-4 flex-wrap">
             {ShopItemArray.map((item) => {
