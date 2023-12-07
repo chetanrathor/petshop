@@ -4,6 +4,8 @@ import { store } from './stores/Store';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import Layout from './Layout/Layout';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 function App() {
   const navigate = useNavigate();
@@ -15,10 +17,14 @@ function App() {
     }
   }, [location.pathname, navigate]);
 
+
   return (
     <div className="App">
       <Provider store={store}>
-        <Layout />
+       
+
+          <Layout />
+  
       </Provider>
     </div>
   );

@@ -8,39 +8,39 @@ import ButtonComponent from './button/ButtonComponent'
 import ButtonText from './button/ButtonText'
 import { RootState } from '../stores/Store'
 const Navbar = () => {
+    function createLinkItem(name: string, path: string) {
+        return {
+            name: name,
+            path: path
+        };
+    }
+
     const linkItems = [
-        {
-            name: 'Home',
-            path: '/home',
+        createLinkItem('Home', '/home'),
+        createLinkItem('Consult a vet', '/consult'),
+        createLinkItem('Shop', '/shop'),
+        createLinkItem('Pet guide', '/petguide')
+    ];
 
-        },
-        {
-            name: 'Consult a vet',
-            path: '/consult',
-
-        },
-        {
-            name: 'Shop',
-            path: '/shop',
-
-        },
-        {
-            name: 'Pet guid',
-            path: '/petguide',
-
-        }
-    ]
-
-    const isAuthenticated = useSelector((state: RootState) => state.authReducer.isAuthenticated)
+    const { isAuthenticated, user } = useSelector((state: RootState) => state.authReducer)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handelCartButtonClick = () => {
-        dispatch(setShow(true))
-        dispatch(setChild(MODAL_TYPES.LOGIN))
+        if (isAuthenticated === false) {
+            dispatch(setShow(true))
+            dispatch(setChild(MODAL_TYPES.LOGIN))
+        }else{
+            navigate(`/checkout/${user.id? user.id:1} `)
+        }
 
     }
     const handelProfileClick = () => {
-        navigate('/profile/1')
+        navigate(`/profile/${user.id}`)
+    }
+    const handelLogoClick = () => {
+
+        navigate('/')
+        window.scrollTo({ top: 0, left: 0 })
     }
     const location = useLocation();
     return (
@@ -48,7 +48,7 @@ const Navbar = () => {
             <div className="d-none d-lg-flex flex-column justify-content-center navbar__container">
                 <div className="d-flex flex-row w-100 navbar__wrapper">
                     <div className="col-4 ">
-                        <div className="d-flex flex-row align-items-center justify-content-between logo_brand_container">
+                        <div onClick={handelLogoClick} className="d-flex flex-row align-items-center justify-content-between logo_brand_container">
 
                             <img src={process.env.PUBLIC_URL + "/logo.png"} height='48px' width='61px' alt="" />
                             <h3 className='brand'>Just Pet</h3>
@@ -59,15 +59,15 @@ const Navbar = () => {
                         {
                             linkItems.map((item) => {
                                 return (
-                                    <>
-                                        <div key={getKey()} className="d-flex flex-column align-items-center item">
-                                            <Link to={item.path}>{item.name}</Link>
-                                            {location.pathname === item.path ?
-                                                <Image isPublicImage alt='active dot' height={'8px'} width={'8px'} path='Active-dot.png' className='mt-2' ></Image>
-                                                : <>&nbsp;</>
-                                            }
-                                        </div>
-                                    </>
+
+                                    <div key={getKey()} className="d-flex flex-column align-items-center item">
+                                        <Link to={item.path}>{item.name}</Link>
+                                        {location.pathname === item.path ?
+                                            <Image isPublicImage alt='active dot' height={'8px'} width={'8px'} path='Active-dot.png' className='mt-2' ></Image>
+                                            : <>&nbsp;</>
+                                        }
+                                    </div>
+
                                 )
                             })
                         }

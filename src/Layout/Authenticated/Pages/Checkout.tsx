@@ -6,16 +6,38 @@ import ButtonComponent from '../../../components/button/ButtonComponent'
 import ButtonText from '../../../components/button/ButtonText'
 import { post } from '../../../features/checkout/api/checkout'
 import Address from '../../../features/profile/components/Address'
+import { RootState, useAppDispatch } from '../../../stores/Store'
+import { useEffect, useState } from 'react';
+import { fetchCartItems } from '../../../features/cart/state/cart.slice'
+import { useSelector } from 'react-redux'
+import { PaymentMethod } from '../../../constant/payment-method'
+import { Elements, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
+import Stripe from './Stripe'
+import { loadStripe } from '@stripe/stripe-js'
+import { setChild, setShow } from '../../../State/ModalSlice'
+import { MODAL_TYPES } from '../../../constant/modal-types'
 
 
 const Checkout = () => {
-   
 
+ 
+    const dispatch = useAppDispatch()
+    const { authReducer, cartReducer } = useSelector((state: RootState) => state)
+    const { cartItems, subTotalBeforDelivery } = cartReducer
+    const { user } = authReducer
+    const [paymentMode, SetPaymentMode] = useState(PaymentMethod.Cash)
+    useEffect(() => {
+        dispatch(fetchCartItems(user.id))
+    }, [])
     const handelOrderPlace = async () => {
-        const res = await post().catch((err) => err)
-        console.log('res', res)
+        dispatch(setShow(true))
+        dispatch(setChild(MODAL_TYPES.STRIPE))
+        // console.log('res', res)
         // window.location.href = res.session;
     }
+
+
+
     return (
         <div>
             <Toolkit></Toolkit>
@@ -40,42 +62,32 @@ const Checkout = () => {
                         <div className="my-order-text">
                             My Orders
                         </div>
-                        <div className="d-flex flex-row mt-4">
-                            <div className="col-1">
-                                <div className="checkout-text">
-                                    1x
-                                </div>
+                        {
+                            cartItems.map((item) => {
+                                return (
+                                    <div key={item.id} className="d-flex flex-row mt-4">
+                                        <div className="col-1">
+                                            <div className="checkout-text">
+                                                {item.quantity}x
+                                            </div>
 
-                            </div>
-                            <div className="col-8">
-                                <div className="checkout-text">
-                                    Tug of War Dog Toy
-                                </div>
-                            </div>
-                            <div className="col-3">
-                                <div className="checkout-text text-end">
-                                    $12.12
-                                </div>
-                            </div>
-                        </div>
-                        <div className="d-flex flex-row mt-5">
-                            <div className="col-1">
-                                <div className="checkout-text ">
-                                    1x
-                                </div>
+                                        </div>
+                                        <div className="col-8">
+                                            <div className="checkout-text">
+                                                {item.product.name}
+                                            </div>
+                                        </div>
+                                        <div className="col-3">
+                                            <div className="checkout-text text-end">
+                                                ${Number(item.product.mrp)}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
 
-                            </div>
-                            <div className="col-8">
-                                <div className="checkout-text">
-                                    Tug of War Dog Toy
-                                </div>
-                            </div>
-                            <div className="col-3">
-                                <div className="checkout-text text-end">
-                                    $12.12
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div className="">
                         <div className="d-flex flex-row justify-content-between mt-3">
@@ -84,7 +96,7 @@ const Checkout = () => {
                             </div>
                             <div className="col-4">
                                 <div className="checkout-text text-end">
-                                    $1,952.66
+                                    ${subTotalBeforDelivery}
                                 </div>
                             </div>
                         </div>
@@ -101,18 +113,18 @@ const Checkout = () => {
                         </div>
                         <div className="d-flex flex-row justify-content-between mt-3 pb-3 border-bottom">
                             <div className="order-total">Order Total</div>
-                            <div className="total-price">$32.39</div>
+                            <div className="total-price">${subTotalBeforDelivery}</div>
                         </div>
                         <div className="">
                             <div className="order-total">Payments</div>
                             <div className="d-flex flex-row align-items-center">
                                 <div className="d-flex flex-row align-items-center col-4">
 
-                                    <input type="checkbox" className='form-check-input mt-0 checkbox_height_width' />
+                                    <input onChange={() => { SetPaymentMode(PaymentMethod.Stripe) }} type="checkbox" checked={paymentMode === PaymentMethod.Stripe} className='form-check-input mt-0 checkbox_height_width' />
                                     <img src={process.env.PUBLIC_URL + '/stripe.png'} className='ms-2' alt="" />
                                 </div>
                                 <div className="d-flex flex-row align-items-center col-4    ">
-                                    <input type="checkbox" className='form-check-input mt-0 checkbox_height_width' />
+                                    <input type="checkbox" onChange={() => { SetPaymentMode(PaymentMethod.Cash) }} checked={paymentMode === PaymentMethod.Cash} className='form-check-input mt-0 checkbox_height_width' />
                                     <div className="ms-3 order-total">COD</div>
 
                                 </div>
@@ -138,6 +150,7 @@ const Checkout = () => {
 
                 </div>
             </div>
+            
         </div>
     )
 }

@@ -47,6 +47,7 @@ const Otp = () => {
             const result = await dispatch(verifyOtp({ otp: Number(values.otp), email: user.email }))
             resetForm()
             if (result.meta.requestStatus === 'fulfilled') {
+              // localStorage.setItem('user')
               dispatch(resetModalState())
             }
             else {

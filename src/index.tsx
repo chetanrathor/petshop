@@ -95,9 +95,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <GoogleOAuthProvider clientId='776539522023-j8bru3hgob4tq7cnbo2e7p0406o2h57b.apps.googleusercontent.com' >
-  <React.StrictMode >
     <RouterProvider router={router} />
-  </React.StrictMode>
+  // <React.StrictMode >
+  // </React.StrictMode>
   // </GoogleOAuthProvider>
 );
 

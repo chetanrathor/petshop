@@ -32,7 +32,7 @@ const Home = () => {
       <Hero heading={heading} subheading={subheading} ></Hero>
       <FeatureProduct></FeatureProduct>
       <HomeProducts></HomeProducts>
-      <AreYouVetBanner></AreYouVetBanner>
+      {/* <AreYouVetBanner></AreYouVetBanner> */}
       <ServicesOffered></ServicesOffered>
       <TopRatedProducts></TopRatedProducts>
       <LatestNews></LatestNews>

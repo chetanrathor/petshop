@@ -94,7 +94,7 @@ const Footer = () => {
     return (
         <div>
             <div className="p-2 pt-md-5 p-md-0 d-flex flex-column footer_container">
-                <div className="m-auto d-flex flex-column flex-md-row justify-content-between footer_wrapper">
+                <div className="m-auto d-flex flex-column flex-md-row justify-content-between footer_wrapper py-2">
 
                     <div className="mt-4 mt-md-0  col-12 col-md-3 p-2">
                         <div className="d-flex flex-row">
@@ -175,7 +175,7 @@ const Footer = () => {
                     </div>
 
                 </div>
-                <div className="bar pb-3">
+                <div className="bar py-3">
                     <div className="d-flex flex-row align-items-center justify-content-center bottom_bar">
                         <h6 className='copyright'>Nokode © Justpet Template All rights reserved Copyrights 2022</h6>
                     </div>

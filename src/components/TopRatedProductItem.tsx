@@ -1,14 +1,22 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import StarRatings from 'react-star-ratings'
 interface PropType {
     name: string,
     rating: number,
     price: string,
-    imgSource: string
+    imgSource: string,
+    id: string
 }
-const TopRatedProductItem = ({ imgSource, name, price, rating }: PropType) => {
+// http://localhost:3000/shop/1
+const TopRatedProductItem = ({ imgSource, name, price, rating, id }: PropType) => {
+    const navigate = useNavigate()
+    const handelClick = () => {
+        navigate(`/shop/${id}`)
+        window.scrollTo({top:0,left:0})
+    }
     return (
-        <div>
+        <div onClick={handelClick}>
             <div className="TopRatedProductItem_container">
                 <div className="d-flex flex-row justify-content-between py-1">
                     <div className="col-4">

@@ -11,6 +11,8 @@ import phone_footer from './phone_footer.svg'
 import email_footer from './email_footer.svg'
 import angle_down from './angle-down.svg'
 import angle_down_2 from './angle-down (1).svg'
+import cart_available from './cart_available.svg'
+import cart_unavailable from './cart_unavailable.svg'
 export const getStaticImages = () => {
     return {
         icon_fb,
@@ -25,6 +27,9 @@ export const getStaticImages = () => {
         phone_footer,
         email_footer,
         angle_down,
-        angle_down_2
+        angle_down_2,
+        cart_available,
+        cart_unavailable
+
     }
 }

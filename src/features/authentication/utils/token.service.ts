@@ -17,11 +17,19 @@ export const getToken = () => {
         return false
     }
 }
-
 export const removeToken = () => {
     try {
         localStorage.removeItem('petshop')
         return true
+    } catch (error) {
+        return false
+    }
+}
+
+export const setUserInLocal = (user: any) => {
+    try {
+
+        localStorage.setItem('user', JSON.stringify(user))
     } catch (error) {
         return false
     }
