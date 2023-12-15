@@ -66,7 +66,7 @@ const Layout = () => {
             <Route path='shop' element={<Shop></Shop>} ></Route>
             <Route path='shop/:id' element={<ProductPage></ProductPage>} ></Route>
             <Route path='checkout/:id' element={<ProtectedRoute><ProductCart></ProductCart></ProtectedRoute>}></Route>
-            <Route path='payment/:id' element={<ProtectedRoute><Checkout></Checkout></ProtectedRoute>}></Route>
+            <Route path='payment/?' element={<ProtectedRoute><Checkout></Checkout></ProtectedRoute>}></Route>
           </Route>
         </Routes>
       </div>

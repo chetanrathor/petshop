@@ -1677,3 +1677,7 @@ body {
   text-decoration-line: underline;
    cursor: pointer;
 }
+
+.error-message {
+  color:red !important;
+}

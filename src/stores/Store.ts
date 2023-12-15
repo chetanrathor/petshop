@@ -13,6 +13,7 @@ import { Product } from "../features/product/types";
 import { petGuideReducer } from "../features/pet-guide/state/pet-guide.slice";
 import { cartReducer } from "../features/cart/state/cart.slice";
 import { loaderReducer } from "../features/loader/state/loader-slice";
+import { addressReducer } from "../features/address/state/address.slice";
 // export interface RootState {
 //     authReducer: AuthReducer,
 //     modalReducer: ModalReducer,
@@ -39,7 +40,8 @@ export const store = configureStore({
         productReducer,
         petGuideReducer,
         cartReducer,
-        loaderReducer
+        loaderReducer,
+        addressReducer,
     }
 })
 

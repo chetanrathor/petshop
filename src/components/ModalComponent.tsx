@@ -9,7 +9,7 @@ import BookConsult from '../features/consultation/components/BookConsult'
 import JoinAsVet from '../features/consultation/components/JoinAsVet'
 import Thankyou from '../features/consultation/components/Thankyou'
 import Otp from '../features/authentication/components/Otp'
-import Stripe from '../Layout/Authenticated/Pages/Stripe'
+import Stripe from '../features/stripe/components/Stripe'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 
@@ -57,10 +57,8 @@ const ModalComponent = ({ show, child }: PropType) => {
   const handelModalClose = () => {
     dispatch(resetModalState())
   }
-  const stripePromise = loadStripe('pk_test_51Ne2HsSJWBez7tD47Y1veUV1csEi2oNIpq56oEh0KTY29lxhAIZjhwLkkonGccQb3uSEvZZpA819LrtN8oCByrgm008IcC7hyF')
 
   return (
-    <Elements stripe={stripePromise} options={{clientSecret:'pi_3OKShCSJWBez7tD41NdCBrSp_secret_feCwN4ypk2oEvAHt6ykKTUuic'}} >
       <Modal centered={true} backdrop={true} show={show} size={getChildComponent(child).size}>
         <ModalHeader className='border-0 justify-content-end   '>
           <div className=" d-flex flex-row justify-content-end close_container">
@@ -69,7 +67,6 @@ const ModalComponent = ({ show, child }: PropType) => {
         </ModalHeader>
         <Modal.Body className='p-0'>{getChildComponent(child).element}</Modal.Body>
       </Modal>
-    </Elements>
   )
 }
 

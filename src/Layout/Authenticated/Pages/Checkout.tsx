@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import BreadCrumb from '../../../components/BreadCrumb'
 import Navbar from '../../../components/Navbar'
 import Toolkit from '../../../components/Toolkit'
@@ -11,33 +11,57 @@ import { useEffect, useState } from 'react';
 import { fetchCartItems } from '../../../features/cart/state/cart.slice'
 import { useSelector } from 'react-redux'
 import { PaymentMethod } from '../../../constant/payment-method'
-import { Elements, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
-import Stripe from './Stripe'
+import { CardElement, Elements, PaymentElement, useElements, useStripe, } from '@stripe/react-stripe-js'
+import Stripe from '../../../features/stripe/components/Stripe'
 import { loadStripe } from '@stripe/stripe-js'
 import { setChild, setShow } from '../../../State/ModalSlice'
 import { MODAL_TYPES } from '../../../constant/modal-types'
-
+import { fetchPaymentIntent } from '../../../features/stripe/api'
+import { processPayment } from '../../../features/stripe/utility'
+import AddNewAddress from '../../../features/address/components/AddNewAddress'
+import { fetchAddress } from '../../../features/address/state/address.slice'
+export enum AddressComponenetVisblity {
+    'NewAddress',
+    'AddressList'
+}
 
 const Checkout = () => {
 
- 
+    const stripe = useStripe()
+    const stripeElement = useElements()
     const dispatch = useAppDispatch()
-    const { authReducer, cartReducer } = useSelector((state: RootState) => state)
+    const { authReducer, cartReducer, addressReducer } = useSelector((state: RootState) => state)
+    const { address } = addressReducer
     const { cartItems, subTotalBeforDelivery } = cartReducer
     const { user } = authReducer
     const [paymentMode, SetPaymentMode] = useState(PaymentMethod.Cash)
+
+    const location = useLocation();
+    const note = new URLSearchParams(location.search).get('note');
     useEffect(() => {
         dispatch(fetchCartItems(user.id))
+        dispatch(fetchAddress(user.id))
     }, [])
     const handelOrderPlace = async () => {
-        dispatch(setShow(true))
-        dispatch(setChild(MODAL_TYPES.STRIPE))
-        // console.log('res', res)
-        // window.location.href = res.session;
+
+        if (paymentMode === PaymentMethod.Stripe) {
+            const response = await dispatch(fetchPaymentIntent({
+                amount: subTotalBeforDelivery,
+                description: note ?? 'NA',
+                userId: user.id
+            }
+            ))
+            const { clientSecret } = response.payload.response
+            const paymentResult = await processPayment({ stripe, clientSecret, stripeElement })
+            console.log('paymentResult', paymentResult)
+            if (!paymentResult) return;
+        }
+
     }
 
+    const stripePromise = loadStripe('pk_test_51Ne2HsSJWBez7tD47Y1veUV1csEi2oNIpq56oEh0KTY29lxhAIZjhwLkkonGccQb3uSEvZZpA819LrtN8oCByrgm008IcC7hyF')
 
-
+    const [addressState, setAddressState] = useState(AddressComponenetVisblity.AddressList)
     return (
         <div>
             <Toolkit></Toolkit>
@@ -46,15 +70,31 @@ const Checkout = () => {
             <div className="d-flex flex-row mw-1264 gap-4 m-auto mt-3">
                 <div className="col-8 p-3 left_adress">
                     <div className='selct_address_text'>Select address </div>
-                    <div className="d-flex flex-column mt-4  gap-4">
-                        <Address></Address>
-                        <Address></Address>
-                        <Address></Address>
-                    </div>
-                    <div className="mt-5">
+                    {
+                        addressState === AddressComponenetVisblity.AddressList ?
+                            <>
+                                <div className="d-flex flex-column mt-4  gap-4">
+                                    {
+                                        address.map((element) => {
+                                            return (
+                                                <Address addressElement={element}></Address>
 
-                        {/* <ButtonComponent bgColor='background-primary' canActivateLoader={false} content='Add New Address' isSubmitButton={false} shouldDisabel={false} extraClass='py-3 border-0' ></ButtonComponent> */}
-                    </div>
+                                            )
+                                        })
+                                    }
+
+                                </div>
+                                <div className="mt-4">
+
+                                    <ButtonComponent handelClick={() => { setAddressState(AddressComponenetVisblity.NewAddress) }} className='px-5 py-3  border ' isSubmitButton={true} backgroundColor='primary' disabled={false} >
+                                        <ButtonText className='color-' fontSize='small' >Add New Address</ButtonText>
+                                    </ButtonComponent>
+                                </div>
+                            </>
+
+                            :
+                            <AddNewAddress addressState={setAddressState}></AddNewAddress>
+                    }
                 </div>
                 <div className="col-4 p-3 left_adress">
                     <div className="border-bottom pb-5">
@@ -133,11 +173,11 @@ const Checkout = () => {
                         </div>
                     </div>
                     <div className="d-flex flex-column gap-3 mt-3">
-
-                        {/* <ButtonComponent bgColor='background-primary' canActivateLoader={false} isSubmitButton={false} shouldDisabel={false} content='Place Order' extraClass='px-5 py-4 border-0 mt-3'></ButtonComponent> */}
-                        {/* <ButtonComponent backgroundColor='primary' disabled={false} isSubmitButton={false} handelClick={() => { }} > <ButtonText fontSize='medium'  > hle </ButtonText> </ButtonComponent> */}
-
-
+                        {
+                            paymentMode === PaymentMethod.Stripe ?
+                                <Stripe></Stripe>
+                                : null
+                        }
                         <ButtonComponent className='px-5 py-3  border ' handelClick={() => { handelOrderPlace() }} isSubmitButton={false} backgroundColor='primary' disabled={false} >
                             <ButtonText className='color-' fontSize='small' >Place Order</ButtonText>
                         </ButtonComponent>
@@ -150,7 +190,7 @@ const Checkout = () => {
 
                 </div>
             </div>
-            
+
         </div>
     )
 }

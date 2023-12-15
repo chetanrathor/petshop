@@ -17,15 +17,22 @@ function App() {
     }
   }, [location.pathname, navigate]);
 
+  const stripePromise = loadStripe('pk_test_51Ne2HsSJWBez7tD47Y1veUV1csEi2oNIpq56oEh0KTY29lxhAIZjhwLkkonGccQb3uSEvZZpA819LrtN8oCByrgm008IcC7hyF')
+
+  useEffect(()=>{
+
+  //   setTimeout(() => {
+  //  navigate({pathname})
+  //   }, 1000);
+  })
 
   return (
     <div className="App">
-      <Provider store={store}>
-       
-
+      <Elements stripe={stripePromise} options={{ clientSecret: 'pi_3OKShCSJWBez7tD41NdCBrSp_secret_feCwN4ypk2oEvAHt6ykKTUuic', }} >
+        <Provider store={store}>
           <Layout />
-  
-      </Provider>
+        </Provider>
+      </Elements>
     </div>
   );
 }

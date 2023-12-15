@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Toolkit from '../../../components/Toolkit'
 import Navbar from '../../../components/Navbar'
 import BreadCrumb from '../../../components/BreadCrumb'
@@ -17,10 +17,11 @@ import Loader from '../../../Shared/Loader'
 
 
 const ProductCart = () => {
+    const [note, setNote] = useState('')
     const navigate = useNavigate()
 
     const handelCheckoutClick = () => {
-        navigate('/payment/1')
+        navigate(`/payment/?note=${note ? note : 'NA'}`)
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
@@ -28,10 +29,10 @@ const ProductCart = () => {
     const { authReducer, cartReducer, loaderReducer } = useSelector((state: RootState) => state)
     const { isLoading } = loaderReducer
     const { user } = authReducer
-    const { cartItems,subTotalBeforDelivery } = cartReducer
+    const { cartItems, subTotalBeforDelivery } = cartReducer
 
     useEffect(() => {
-            dispatch(fetchCartItems(user.id))
+        dispatch(fetchCartItems(user.id))
     }, [])
 
 
@@ -108,7 +109,7 @@ const ProductCart = () => {
                             Add a note to your order
                         </div>
                         <div className="">
-                            <textarea className='w-100 mt-2   product-order-note-textarea'> </textarea>
+                            <textarea value={note} onChange={(e) => setNote(e.target.value)} className='w-100 mt-2   product-order-note-textarea'> </textarea>
                         </div>
                     </div>
                     <div className="col-4 d-flex flex-column ">
