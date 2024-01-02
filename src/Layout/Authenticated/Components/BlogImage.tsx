@@ -1,6 +1,10 @@
 import React from 'react'
 import DateComponent from '../../../components/DateComponent'
-const BlogImage = () => {
+interface Properties {
+    heading: string,
+    date: string
+}
+const BlogImage = ({ date, heading}: Properties) => {
     return (
         <div>
             <div className="blog_detail_image_container">
@@ -9,11 +13,10 @@ const BlogImage = () => {
                 </div>
                 <div className="mt-5 date_heading_container">
                     <DateComponent
-                        date='May 29, 2022'></DateComponent>
+                        date={date}></DateComponent>
                     <div className="pe-4 mt-4 col-9">
                         <h1 className='blog_detail_image_heading'>
-                            Your Dog Desperately Needs
-                            From You
+                            {heading}
                         </h1>
                     </div>
 

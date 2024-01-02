@@ -286,7 +286,7 @@ input:checked {
 
 
   background: #f2eadf;
-  border: 2px solid #f84072;
+
   border-radius: 80px;
 }
 
@@ -906,7 +906,7 @@ input:checked {
 
 .footer_container {
   background: #2d2f55;
-  height: 434px;
+  /* height: 434px; */
 }
 
 .footer_wrapper {
@@ -1169,6 +1169,7 @@ input:checked {
 
 .logo_brand_container {
   width: 183px;
+  cursor: pointer;
 }
 
 .item {
@@ -1654,4 +1655,29 @@ body {
   font-weight: 400;
   line-height: 22px;
   /* 157.143% */
+}
+
+.cart-btn {
+  border-radius: 8px !important;
+  border: 1px solid #F84072 !important;
+}
+
+.active-category {
+  border: 2px solid #f84072;
+}
+
+.reset_filter-text {
+  color: var(--Link, #0C7BE1);
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  /* 125% */
+  text-decoration-line: underline;
+   cursor: pointer;
+}
+
+.error-message {
+  color:red !important;
 }

@@ -1,7 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
-const FeatureProductItem = () => {
+
+interface Property {
+  name: string,
+  rating: number,
+  price: number
+}
+const FeatureProductItem = ({ name, price, rating }: Property) => {
 
   const navigate = useNavigate()
 
@@ -21,11 +27,11 @@ const FeatureProductItem = () => {
         </div>
         <div className="px-4 mt-3 d-flex flex-column align-items-center price_container ">
           <span className=' product_name'>
-            Pink Spiked Collar
+            {name}
           </span>
           <StarRatings starHoverColor='#FFDA47'
             changeRating={(rating) => { console.log(rating) }}
-            rating={2}
+            rating={rating}
             starRatedColor="#FFDA47"
             numberOfStars={5}
             starDimension='16'
@@ -35,7 +41,7 @@ const FeatureProductItem = () => {
           ></StarRatings>
 
           <div className='mt-3 product_price'>
-            $7.23
+            ${price}
           </div>
         </div>
       </div>

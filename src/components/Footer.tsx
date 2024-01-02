@@ -1,8 +1,32 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { getKey } from "../utils"
 import Image from "./Image"
+import { useDispatch, useSelector } from "react-redux"
+import { RootState, store } from "../stores/Store"
+import { setChild, setShow } from "../State/ModalSlice"
+import { MODAL_TYPES } from "../constant/modal-types"
+import { getStaticImages } from "../assets/Images"
 
 const Footer = () => {
+    const navigate = useNavigate()
+    const auth = useSelector((state: RootState) => state.authReducer)
+    const dispatch = useDispatch<typeof store.dispatch>()
+    const handelClick = (isRequireAuthentication: boolean, path?: string) => {
+        if (isRequireAuthentication) {
+
+            if (auth.isAuthenticated) {
+                navigate('/')
+            } else {
+                dispatch(setShow(true))
+                dispatch(setChild(MODAL_TYPES.LOGIN))
+            }
+        } else {
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+            navigate(path ?? '/', { preventScrollReset: true })
+        }
+
+
+    }
     const usefullLink1 = [
         {
             link: 'Consult',
@@ -12,13 +36,13 @@ const Footer = () => {
         },
         {
             link: 'Shop',
-            path: '/',
+            path: '/shop',
 
 
         },
         {
             link: 'Pet guide',
-            path: '/',
+            path: '/petguide',
 
 
         }
@@ -65,10 +89,12 @@ const Footer = () => {
         }
     ]
 
+    const { icon_fb_footer, icon_insta_footer, icon_twitter_footer,email_footer,phone_footer } = getStaticImages()
+
     return (
         <div>
             <div className="p-2 pt-md-5 p-md-0 d-flex flex-column footer_container">
-                <div className="m-auto d-flex flex-column flex-md-row justify-content-between footer_wrapper">
+                <div className="m-auto d-flex flex-column flex-md-row justify-content-between footer_wrapper py-2">
 
                     <div className="mt-4 mt-md-0  col-12 col-md-3 p-2">
                         <div className="d-flex flex-row">
@@ -80,7 +106,7 @@ const Footer = () => {
                         </p>
                         <div className="d-flex flex-row">
                             <div className="col-4 d-flex flex-row justify-content-between social_icon_container">
-                                {
+                                {/* {
                                     socialLinks.map((item) => {
 
                                         return (
@@ -92,7 +118,10 @@ const Footer = () => {
                                         )
 
                                     })
-                                }
+                                } */}
+                                <img src={icon_fb_footer} alt="" />
+                                <img src={icon_insta_footer} alt="" />
+                                <img src={icon_twitter_footer} alt="" />
                             </div>
                         </div>
                     </div>
@@ -104,9 +133,9 @@ const Footer = () => {
                                     {
                                         usefullLink1.map((item) => {
                                             return (<>
-                                                <div key={getKey()} className='mt-3'>
+                                                <div className='mt-3 cursor-pointer_2'>
                                                     <img src={process.env.PUBLIC_URL + "/Active-dot.png"} alt="" height='8px' width='8px' />
-                                                    <span className='ms-2 consult'>{item.link}</span>
+                                                    <span onClick={() => { handelClick(false, item.path) }} className='ms-2 consult'>{item.link}</span>
                                                 </div>
                                             </>)
                                         })
@@ -116,9 +145,9 @@ const Footer = () => {
                                     {
                                         usefullLink2.map((item) => {
                                             return (<>
-                                                <div key={getKey()} className='mt-3'>
+                                                <div className='mt-3 cursor-pointer_2'>
                                                     <img src={process.env.PUBLIC_URL + "/Active-dot.png"} alt="" height='8px' width='8px' />
-                                                    <Link to={item.path} className='ms-2 consult'>{item.link}</Link>
+                                                    <span onClick={() => { handelClick(true) }} className='ms-2 consult'>{item.link}</span>
                                                 </div>
                                             </>)
                                         })
@@ -133,12 +162,12 @@ const Footer = () => {
                             <div className="col-8">
                                 <div className="">
 
-                                    <img height='28px' width='28px' src={process.env.PUBLIC_URL + "/footercall.png"} alt="" />
+                                    <img src={email_footer} alt="" />
                                     <span className='ms-3 footer_call'>(913) 756-3126</span>
                                 </div>
                                 <div className="mt-5    ">
                                 </div>
-                                <img height='21px' width='30px' src={process.env.PUBLIC_URL + "/email.png"} alt="" />
+                                <img src={phone_footer} alt="" />
                                 <span className='ms-3 footer_call'>(913) 756-3126</span>
 
                             </div>
@@ -146,7 +175,7 @@ const Footer = () => {
                     </div>
 
                 </div>
-                <div className="bar pb-3">
+                <div className="bar py-3">
                     <div className="d-flex flex-row align-items-center justify-content-center bottom_bar">
                         <h6 className='copyright'>Nokode © Justpet Template All rights reserved Copyrights 2022</h6>
                     </div>
