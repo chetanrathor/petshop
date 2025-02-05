@@ -1,40 +1,68 @@
-import React, { useEffect } from 'react'; // Import React and useEffect
-import { Provider } from 'react-redux';
-import { store } from './stores/Store';
-import { useLocation, useNavigate } from 'react-router-dom';
-import './App.css';
-import Layout from './Layout/Layout';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
+import { useState, useRef } from "react";
 
-function App() {
-  const navigate = useNavigate();
-  const location = useLocation();
+export default function AudioRecorder() {
+  const [isRecording, setIsRecording] = useState(false);
+  const mediaRecorderRef = useRef<any>(null);
+  const audioChunksRef = useRef<any>([]);
 
-  useEffect(() => {
-    if (location.pathname === '/') {
-      navigate('/home'); // Redirect to the 'home' route
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+
+      mediaRecorder.ondataavailable = (event) => {
+        console.log('event :>> ', event);
+        if (event.data.size > 0) {
+          const audioBlob = new Blob(audioChunksRef.current, { type: "audio/wav" });
+          sendAudioToAPI(audioBlob);
+        }
+      };
+
+      mediaRecorder.onstop = async () => {
+        const audioBlob = new Blob(audioChunksRef.current, { type: "audio/wav" });
+        audioChunksRef.current = [];
+      };
+
+      mediaRecorder.start();
+      setIsRecording(true);
+    } catch (error) {
+      console.error("Error accessing microphone:", error);
     }
-  }, [location.pathname, navigate]);
+  };
 
-  const stripePromise = loadStripe('pk_test_51Ne2HsSJWBez7tD47Y1veUV1csEi2oNIpq56oEh0KTY29lxhAIZjhwLkkonGccQb3uSEvZZpA819LrtN8oCByrgm008IcC7hyF')
+  const stopRecording = () => {
+    if (mediaRecorderRef.current) {
+      mediaRecorderRef.current.stop();
+      setIsRecording(false);
+    }
+  };
 
-  useEffect(()=>{
+  const sendAudioToAPI = async (audioBlob:any) => {
+    console.log('audioBlob :>> ', audioBlob);
+    const formData = new FormData();
+    formData.append("audio", audioBlob, "recording.wav");
 
-  //   setTimeout(() => {
-  //  navigate({pathname})
-  //   }, 1000);
-  })
+    try {
+      const response = await fetch("https://your-api.com/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      console.log("Server Response:", data);
+    } catch (error) {
+      console.error("Error uploading audio:", error);
+    }
+  };
 
   return (
-    <div className="App">
-      <Elements stripe={stripePromise} options={{ clientSecret: 'pi_3OKShCSJWBez7tD41NdCBrSp_secret_feCwN4ypk2oEvAHt6ykKTUuic', }} >
-        <Provider store={store}>
-          <Layout />
-        </Provider>
-      </Elements>
+    <div className="p-4 flex flex-col items-center gap-4">
+      <button
+        onClick={isRecording ? stopRecording : startRecording}
+        className="px-4 py-2 bg-blue-500 text-white rounded"
+      >
+        {isRecording ? "Stop Recording" : "Start Recording"}
+      </button>
     </div>
   );
 }
-
-export default App;

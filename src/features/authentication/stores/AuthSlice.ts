@@ -59,10 +59,10 @@ export const logOutUser = createAsyncThunk(
 );
 
 const initialState = {
-    isAuthenticated: true,
+    isAuthenticated: false,
     message: '',
     stage: 1,
-    user: JSON.parse(localStorage.getItem('user') ?? '') || {} ,
+    user: JSON.parse(localStorage.getItem('user') ?? JSON.stringify({})) || {} ,
 } as unknown as AuthReducer
 
 export const authSlice = createSlice({
